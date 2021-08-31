@@ -384,10 +384,7 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtualizarAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarAlunosActionPerformed
-//        FrmAtualizarAlunos atualizaalunos = new FrmAtualizarAlunos();
-//        atualizaalunos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        this.dispose(); 
-        
+ 
         atualizarAlunos();        
         ComboHipotese();
         ComboRestauraCidDiagnostico();        
@@ -639,9 +636,6 @@ public void atualizarAlunos()
                     + "não pode ficar vazio.");
         }     
           
-         
-       
-        
         else
         {
             DAO_Alunos atualizaAlunos = new DAO_Alunos();
@@ -712,9 +706,10 @@ public void atualizarAlunos()
                     JOptionPane.showMessageDialog(null,"Atualizado com sucesso");
                     this.dispose();
                     
-                    FrmPesquisarAlunos Pesquisa = new FrmPesquisarAlunos();
-                    Pesquisa.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    Pesquisa.setVisible(true);  
+//                    FrmPesquisarAlunos Pesquisa = new FrmPesquisarAlunos();
+//                    Pesquisa.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//                    Pesquisa.setVisible(true);
+                    
                }
                catch(HeadlessException erro)
                {
