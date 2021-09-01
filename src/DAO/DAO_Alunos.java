@@ -167,9 +167,6 @@ public class DAO_Alunos
         {
             conectaBanco = new ConnectionFactory().getConnectionFactory();
 
-
-
-
          String sql_listar = "select cpf, data_cadastro, professor_aee, nome_aluno, "
                     + " data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
                     + " tipo_diag, CIDA.cid, descricao_diag, tipo_hd, CIDB.cid,  "
@@ -366,8 +363,6 @@ public class DAO_Alunos
         }                
                         
       }
-        
-
         
         public ResultSet TotalAlunosDiagUnico(String descricao_diagnostico)
         {
