@@ -347,9 +347,6 @@ public class DAO_Alunos
 //                        "and tipo_diag like '%unico%'  \n" +
                         "AND estatus LIKE 'A';";
 
-  
-             
-
             ResultSet resultadoBusca;
             try
             {
