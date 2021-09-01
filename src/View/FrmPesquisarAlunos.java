@@ -128,6 +128,12 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
         tbListarAlunos.setEditingRow(0);
         jScrollPane1.setViewportView(tbListarAlunos);
         if (tbListarAlunos.getColumnModel().getColumnCount() > 0) {
+            tbListarAlunos.getColumnModel().getColumn(0).setMinWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(0).setMaxWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(23).setMinWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(23).setPreferredWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(23).setMaxWidth(0);
             tbListarAlunos.getColumnModel().getColumn(25).setMinWidth(0);
             tbListarAlunos.getColumnModel().getColumn(25).setPreferredWidth(0);
             tbListarAlunos.getColumnModel().getColumn(25).setMaxWidth(0);

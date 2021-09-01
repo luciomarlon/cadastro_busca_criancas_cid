@@ -340,7 +340,7 @@ public class DAO_Alunos
             
             conectaBanco = new ConnectionFactory().getConnectionFactory();
 
-        String sql_pesquisar = "select count(*)descricao_diag from tbl_aluno\n" +
+        String sql_pesquisar = "select count(*) from tbl_aluno\n" +
                         "	join tbl_escola on id_escola = fk_professor_escola\n" +
                         "	join tbl_professor on id_professor = fk_professor_escola\n" +
                         "	join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid \n" +
@@ -350,6 +350,7 @@ public class DAO_Alunos
 //                        "and tipo_diag like '%unico%'  \n" +
                         "AND estatus LIKE 'A';";
 
+  
              
 
             ResultSet resultadoBusca;
@@ -373,7 +374,7 @@ public class DAO_Alunos
             
             conectaBanco = new ConnectionFactory().getConnectionFactory();
 
-        String sql_pesquisar = "select count(*)descricao_diag from tbl_aluno\n" +
+        String sql_pesquisar = "select count(*) from tbl_aluno\n" +
                         "	join tbl_escola on id_escola = fk_professor_escola\n" +
                         "	join tbl_professor on id_professor = fk_professor_escola\n" +
                         "	join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid \n" +
@@ -404,7 +405,7 @@ public class DAO_Alunos
             
             conectaBanco = new ConnectionFactory().getConnectionFactory();
 
-        String sql_pesquisar = "select count(*)descricao_diag from tbl_aluno\n" +
+        String sql_pesquisar = "select count(*) from tbl_aluno\n" +
                         "	join tbl_escola on id_escola = fk_professor_escola\n" +
                         "	join tbl_professor on id_professor = fk_professor_escola\n" +
                         "	join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid \n" +
@@ -436,7 +437,7 @@ public class DAO_Alunos
             
             conectaBanco = new ConnectionFactory().getConnectionFactory();
 
-        String sql_pesquisar = "select count(*)descricao_hd from tbl_aluno\n" +
+        String sql_pesquisar = "select count(*) from tbl_aluno\n" +
                         "	join tbl_escola on id_escola = fk_professor_escola\n" +
                         "	join tbl_professor on id_professor = fk_professor_escola\n" +
                         "	join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid \n" +
@@ -467,7 +468,7 @@ public class DAO_Alunos
             
             conectaBanco = new ConnectionFactory().getConnectionFactory();
 
-        String sql_pesquisar = "select count(*)descricao_hd from tbl_aluno\n" +
+        String sql_pesquisar = "select count(*) from tbl_aluno\n" +
                         "	join tbl_escola on id_escola = fk_professor_escola\n" +
                         "	join tbl_professor on id_professor = fk_professor_escola\n" +
                         "	join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid \n" +
