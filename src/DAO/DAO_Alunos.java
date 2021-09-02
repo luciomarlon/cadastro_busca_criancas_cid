@@ -167,8 +167,25 @@ public class DAO_Alunos
         {
             conectaBanco = new ConnectionFactory().getConnectionFactory();
 
-         String sql_listar = "select cpf, data_cadastro, professor_aee, nome_aluno, "
-                    + " data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
+//         String sql_listar = "select cpf, data_cadastro, professor_aee, nome_aluno, "
+//                    + " data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
+//                    + " tipo_diag, CIDA.cid, descricao_diag, tipo_hd, CIDB.cid,  "
+//                    + " descricao_hd, ano_escolar_aluno, turno_escolar, turno_aee, profregular, "
+//                    + " observacoes, transporte, auxiliar, mobilidade, telefone, "
+//                    + " beneficio_recebido, estatus, id_aluno "
+//                    + " from tbl_aluno "
+//                    + "	join tbl_escola on id_escola = fk_professor_escola "
+//                    + "	join tbl_professor on id_professor = fk_professor_escola "
+//                    + " join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid "
+//                    + " join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid "	                   
+//                    + " join tbl_beneficios on id_beneficios = fk_beneficios "                       
+//            + " where (nome_aluno like '%%' OR professor_aee like '%%' OR "
+//            + " tipo_diag LIKE '%%' OR CIDA.cid like '%%' OR  CIDB.cid like '%%' OR"          
+//            + " descricao_diag like '%%') AND estatus LIKE 'A' order by professor_aee;";
+
+
+ String sql_listar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) data_cadastro, professor_aee, nome_aluno, "
+                    + " date_format(data_nasc, \"%d/%m/%Y\" ) data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
                     + " tipo_diag, CIDA.cid, descricao_diag, tipo_hd, CIDB.cid,  "
                     + " descricao_hd, ano_escolar_aluno, turno_escolar, turno_aee, profregular, "
                     + " observacoes, transporte, auxiliar, mobilidade, telefone, "
@@ -216,8 +233,33 @@ public class DAO_Alunos
 
 
 
-  String sql_pesquisar = "select cpf, data_cadastro, professor_aee, nome_aluno, "
-                    + " data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
+//  String sql_pesquisar = "select cpf, data_cadastro, professor_aee, nome_aluno, "
+//                    + " data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
+//                    + " tipo_diag, CIDA.cid, descricao_diag, tipo_hd, CIDB.cid,  "
+//                    + " descricao_hd, ano_escolar_aluno, turno_escolar, turno_aee, profregular, "
+//                    + " observacoes, transporte, auxiliar, mobilidade, telefone, "
+//                    + " beneficio_recebido, estatus, id_aluno "
+//                    + "  from tbl_aluno "
+//                    + "	 join tbl_escola on id_escola = fk_professor_escola"
+//                    + "	 join tbl_professor on id_professor = fk_professor_escola"
+//                    + "  join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid "
+//                    + "  join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid "
+//                    + "  join tbl_beneficios on id_beneficios = fk_beneficios "              
+//                    + "	where (nome_escola like '%"+nome_escola+"%' OR "
+//                    + " nome_aluno like '%"+nome_aluno+"%' OR "
+//                    + " sexo like '%"+sexo+"%'OR "
+//                    + " laudo like '%"+laudo+"%'OR "
+//                    + " suspeita like '%"+medico+"%'OR "
+////                    + " tipo_diag like '%"+tipo_diag+"%'OR "
+////                    + " CIDA.cid like '%"+cod_cid+"%'OR "
+////                    + " CIDB.cid like '%"+cod_cid_hd+"%'OR "
+//                    + " descricao_diag like '%"+descricao_diag+"%' OR "   
+//                    + " descricao_hd like '%"+descricao_hd+"%' OR "  
+//                    + " professor_aee like '%"+professor_aee+"%') " 
+//                    + " AND estatus LIKE 'A' order by nome_aluno";
+
+String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) data_cadastro, professor_aee, nome_aluno, "
+                    + " date_format(data_nasc, \"%d/%m/%Y\" ) data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
                     + " tipo_diag, CIDA.cid, descricao_diag, tipo_hd, CIDB.cid,  "
                     + " descricao_hd, ano_escolar_aluno, turno_escolar, turno_aee, profregular, "
                     + " observacoes, transporte, auxiliar, mobilidade, telefone, "
@@ -239,7 +281,7 @@ public class DAO_Alunos
                     + " descricao_diag like '%"+descricao_diag+"%' OR "   
                     + " descricao_hd like '%"+descricao_hd+"%' OR "  
                     + " professor_aee like '%"+professor_aee+"%') " 
-                    + " AND estatus LIKE 'A' ";
+                    + " AND estatus LIKE 'A' order by nome_aluno";
             
             ResultSet resultadoBusca;
             try
@@ -264,8 +306,8 @@ public class DAO_Alunos
 
 
             
- String sql_pesquisar = "select cpf, data_cadastro, professor_aee, nome_aluno, "
-                    + " data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
+ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) data_cadastro, professor_aee, nome_aluno, "
+                    + " date_format(data_nasc, \"%d/%m/%Y\" ) data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
                     + " tipo_diag, CIDA.cid, descricao_diag, tipo_hd, CIDB.cid,  "
                     + " descricao_hd, ano_escolar_aluno, turno_escolar, turno_aee, profregular, "
                     + " observacoes, transporte, auxiliar, mobilidade, telefone, "
@@ -302,8 +344,8 @@ public class DAO_Alunos
 
 
             
-        String sql_pesquisar = "select cpf, data_cadastro, professor_aee, nome_aluno, "
-                           + " data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
+        String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) data_cadastro, professor_aee, nome_aluno, "
+                           + " date_format(data_nasc, \"%d/%m/%Y\" ) data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
                            + " tipo_diag, CIDA.cid, descricao_diag, tipo_hd, CIDB.cid,  "
                            + " descricao_hd, ano_escolar_aluno, turno_escolar, turno_aee, profregular, "
                            + " observacoes, transporte, auxiliar, mobilidade, telefone, "

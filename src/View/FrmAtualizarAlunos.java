@@ -254,7 +254,7 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 230, 145, 26));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel21.setText("Data Cadastro");
+        jLabel21.setText("Data Atualização");
         getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
         txtTelefone.setBackground(new java.awt.Color(204, 255, 255));
@@ -390,6 +390,7 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         ComboRestauraCidDiagnostico();        
         ComboBeneficios();
         ComboRestauraProfessor();
+        AtualizarListagem();
 
     }//GEN-LAST:event_btnAtualizarAlunosActionPerformed
 
@@ -399,6 +400,14 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
     
+    
+    private void AtualizarListagem(){
+        FrmPesquisarAlunos atualizatela = new FrmPesquisarAlunos();
+        atualizatela.Limpar();
+                    
+        FrmPesquisarAlunos atualizatelalistar = new FrmPesquisarAlunos();
+        atualizatelalistar.ListarAlunos();
+    }
             
     /**
      * @param args the command line arguments
@@ -489,29 +498,30 @@ public void atualizarAlunos()
           txtProfessorregular.getText();
           txtMobilidade.getText();
           
-//          String dia = txtDataNasc.getText().substring(0, 2);
-//          String mes = txtDataNasc.getText().substring(3, 5);
-//          String ano = txtDataNasc.getText().substring(6);
-//          
-//          String diaCadastro = txtDatacadastro.getText().substring(0, 2);
-//          String mesCadastro = txtDatacadastro.getText().substring(3, 5);
-//          String anoCadastro = txtDatacadastro.getText().substring(6);
-//          
-//          String dataMySQL = ano+"-"+mes+"-"+dia;
-//          String dataCadastro = anoCadastro+"-"+mesCadastro+"-"+diaCadastro;
+          String dia = txtDataNasc.getText().substring(0, 2);
+          String mes = txtDataNasc.getText().substring(3, 5);
+          String ano = txtDataNasc.getText().substring(6);
           
+          String diaCadastro = txtDatacadastro.getText().substring(0, 2);
+          String mesCadastro = txtDatacadastro.getText().substring(3, 5);
+          String anoCadastro = txtDatacadastro.getText().substring(6);
+         
+          String dataMySQL = ano+"-"+mes+"-"+dia;
+          String dataCadastro = anoCadastro+"-"+mesCadastro+"-"+diaCadastro;
 
-//        if (dataCadastro.isEmpty())
-//        {            
-//            JOptionPane.showMessageDialog(null, "Campo DATA DO CADASTRO não "
-//                    + " pode ficar vazio");
-//        } 
+      
 
-        if (txtDatacadastro.getText().isEmpty())
+        if (dataCadastro.isEmpty())
         {            
             JOptionPane.showMessageDialog(null, "Campo DATA DO CADASTRO não "
                     + " pode ficar vazio");
         } 
+
+//        if (txtDatacadastro.getText().isEmpty())
+//        {            
+//            JOptionPane.showMessageDialog(null, "Campo DATA DO CADASTRO não "
+//                    + " pode ficar vazio");
+//        } 
         
         else if (cbSexo.getSelectedItem().equals("SELECIONE"))   
         {
@@ -519,17 +529,17 @@ public void atualizarAlunos()
                     + "pode ficar vazio");
         }       
         
-//        else if (dataMySQL.isEmpty())
-//        {
-//            JOptionPane.showMessageDialog(null, "Campo DATA DE NASCIMENTO "
-//                    + "não pode ficar vazia");
-//        } 
-        
-        else if (txtDataNasc.getText().isEmpty())
+        else if (dataMySQL.isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Campo DATA DE NASCIMENTO "
                     + "não pode ficar vazia");
         } 
+        
+//        else if (txtDataNasc.getText().isEmpty())
+//        {
+//            JOptionPane.showMessageDialog(null, "Campo DATA DE NASCIMENTO "
+//                    + "não pode ficar vazia");
+//        } 
         
         else if (txtNomeAluno.getText().isEmpty())
         {
@@ -642,11 +652,13 @@ public void atualizarAlunos()
             AlunosAEE alteraAlunos = new AlunosAEE(
                     
                     txtCpfAluno.getText(),                    
-                    txtDatacadastro.getText(),                                       
+                    dataCadastro,
+//                    txtDatacadastro.getText(),                                       
                     txtAnoEscolar.getText().toUpperCase(),
                     txtNomeAluno.getText().toUpperCase(), 
                     cbSexo.getSelectedItem().toString(),
-                    txtDataNasc.getText(),
+                    dataMySQL,
+//                    txtDataNasc.getText(),
                     txtResponsavel.getText().toUpperCase(),
                     txtTelefone.getText().toUpperCase(),
                     cbSuspeita.getSelectedItem().toString(), 
@@ -704,7 +716,9 @@ public void atualizarAlunos()
                     
                     atualizaAlunos.alterarAlunos(alteraAlunos);                        
                     JOptionPane.showMessageDialog(null,"Atualizado com sucesso");
-                    this.dispose();
+                  
+                      this.dispose();
+                    
                     
 //                    FrmPesquisarAlunos Pesquisa = new FrmPesquisarAlunos();
 //                    Pesquisa.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

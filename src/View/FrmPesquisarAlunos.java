@@ -552,7 +552,7 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
                  
                 if(txtPesquisaAlunos.getText().equals(""))
                 {
-                    
+                    Limpar();
                     ListarAlunos();                    
                     PesquisarTotal();  
                     lbMudaDiagnostico.setText("TOTAL DE REGISTROS");
@@ -846,7 +846,7 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
          }
     }
     
-    private void ListarAlunos()
+    public void ListarAlunos()
     {
         DefaultTableModel tabelaAlunos = 
                 (DefaultTableModel)tbListarAlunos.getModel();
