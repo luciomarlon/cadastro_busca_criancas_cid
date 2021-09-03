@@ -95,7 +95,6 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        txtDataNasc = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtResponsavel = new javax.swing.JTextField();
@@ -142,7 +141,6 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtObservacoes = new javax.swing.JTextArea();
         txtNomeAluno = new javax.swing.JTextField();
-        txtDatacadastro = new javax.swing.JTextField();
         cbAuxiliar = new javax.swing.JComboBox<>();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
@@ -151,6 +149,8 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         txtMobilidade = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
         txtProfessorregular = new javax.swing.JTextField();
+        txtDataNasc = new javax.swing.JFormattedTextField();
+        txtDatacadastro = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CREI - CENTRO DE REFERENCIA EDUCAÇÃO INCLUSIVA");
@@ -160,10 +160,6 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("CPF aluno ou responsável");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, -1, -1));
-
-        txtDataNasc.setBackground(new java.awt.Color(204, 255, 255));
-        txtDataNasc.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(txtDataNasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 110, 160, 35));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Sexo");
@@ -345,10 +341,6 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         txtNomeAluno.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(txtNomeAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 571, 35));
 
-        txtDatacadastro.setBackground(new java.awt.Color(204, 255, 255));
-        txtDatacadastro.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(txtDatacadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 160, 35));
-
         cbAuxiliar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Sim", "Não", "Parcial" }));
         getContentPane().add(cbAuxiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 680, 110, 35));
 
@@ -378,6 +370,22 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         txtProfessorregular.setBackground(new java.awt.Color(204, 255, 255));
         txtProfessorregular.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(txtProfessorregular, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 760, 170, 35));
+
+        txtDataNasc.setBackground(new java.awt.Color(204, 255, 255));
+        try {
+            txtDataNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        getContentPane().add(txtDataNasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 110, 160, 35));
+
+        txtDatacadastro.setBackground(new java.awt.Color(204, 255, 255));
+        try {
+            txtDatacadastro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        getContentPane().add(txtDatacadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 160, 35));
 
         pack();
         setLocationRelativeTo(null);
@@ -468,8 +476,8 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtAnoEscolar;
     private javax.swing.JTextField txtCpfAluno;
-    private javax.swing.JTextField txtDataNasc;
-    private javax.swing.JTextField txtDatacadastro;
+    private javax.swing.JFormattedTextField txtDataNasc;
+    private javax.swing.JFormattedTextField txtDatacadastro;
     private javax.swing.JTextField txtDescDiagnostico;
     private javax.swing.JTextField txtDescricaoHD;
     private javax.swing.JTextField txtMobilidade;

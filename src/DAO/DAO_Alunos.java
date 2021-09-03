@@ -16,8 +16,8 @@ public class DAO_Alunos
    
    public void adicionarAlunos(AlunosAEE alunos)
    {
-
-      String sql_inserir = "INSERT INTO tbl_aluno(cpf, data_cadastro, ano_escolar_aluno, "
+       
+       String sql_inserir = "INSERT INTO tbl_aluno(cpf, data_cadastro, ano_escolar_aluno, "
               + "nome_aluno, sexo, data_nasc, nome_responsavel, telefone, "
               + "suspeita, laudo, tipo_diag, descricao_diag, "
               + "tipo_hd, descricao_hd, turno_escolar, "
@@ -27,7 +27,6 @@ public class DAO_Alunos
               + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
               + "?, ?, ?, ?, ?, ?, ?)" ; 
       
-       
            
           try (PreparedStatement stmt = conectaBanco.prepareStatement(sql_inserir)) 
           {
@@ -72,8 +71,6 @@ public class DAO_Alunos
         public void alterarAlunos(AlunosAEE alunos)
         {
 
-
-            
               String sql_atualizar =  "UPDATE tbl_aluno SET cpf = ?, data_cadastro = ?, "
                     + " fk_professor_escola = ?,  nome_aluno = ?, data_nasc = ?, "
                     + " sexo = ?,  laudo = ?, suspeita = ?, nome_responsavel = ?,  "
@@ -167,22 +164,6 @@ public class DAO_Alunos
         {
             conectaBanco = new ConnectionFactory().getConnectionFactory();
 
-//         String sql_listar = "select cpf, data_cadastro, professor_aee, nome_aluno, "
-//                    + " data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
-//                    + " tipo_diag, CIDA.cid, descricao_diag, tipo_hd, CIDB.cid,  "
-//                    + " descricao_hd, ano_escolar_aluno, turno_escolar, turno_aee, profregular, "
-//                    + " observacoes, transporte, auxiliar, mobilidade, telefone, "
-//                    + " beneficio_recebido, estatus, id_aluno "
-//                    + " from tbl_aluno "
-//                    + "	join tbl_escola on id_escola = fk_professor_escola "
-//                    + "	join tbl_professor on id_professor = fk_professor_escola "
-//                    + " join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid "
-//                    + " join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid "	                   
-//                    + " join tbl_beneficios on id_beneficios = fk_beneficios "                       
-//            + " where (nome_aluno like '%%' OR professor_aee like '%%' OR "
-//            + " tipo_diag LIKE '%%' OR CIDA.cid like '%%' OR  CIDB.cid like '%%' OR"          
-//            + " descricao_diag like '%%') AND estatus LIKE 'A' order by professor_aee;";
-
 
  String sql_listar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) data_cadastro, professor_aee, nome_aluno, "
                     + " date_format(data_nasc, \"%d/%m/%Y\" ) data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
@@ -215,48 +196,23 @@ public class DAO_Alunos
         }
         
         public ResultSet PesquisarAlunos(
-                                         String nome_escola,   
-                                         String nome_aluno,
-                                         String sexo,
-                                         String laudo,
-                                         String medico,
-//                                         String tipo_diag,
-//                                         String cod_cid,
-//                                         String cod_cid_hd,
-                                         String descricao_diag,
-                                         String descricao_hd,
-                                         String professor_aee
+                String nome_escola,   
+                String nome_aluno,
+                String sexo,
+                String laudo,
+                String medico,
+//              String tipo_diag,
+//              String cod_cid,
+//              String cod_cid_hd,
+                String descricao_diag,
+                String descricao_hd,
+                String professor_aee,
+                String mobilidade
                                         )
         {
             
             conectaBanco = new ConnectionFactory().getConnectionFactory();
 
-
-
-//  String sql_pesquisar = "select cpf, data_cadastro, professor_aee, nome_aluno, "
-//                    + " data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
-//                    + " tipo_diag, CIDA.cid, descricao_diag, tipo_hd, CIDB.cid,  "
-//                    + " descricao_hd, ano_escolar_aluno, turno_escolar, turno_aee, profregular, "
-//                    + " observacoes, transporte, auxiliar, mobilidade, telefone, "
-//                    + " beneficio_recebido, estatus, id_aluno "
-//                    + "  from tbl_aluno "
-//                    + "	 join tbl_escola on id_escola = fk_professor_escola"
-//                    + "	 join tbl_professor on id_professor = fk_professor_escola"
-//                    + "  join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid "
-//                    + "  join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid "
-//                    + "  join tbl_beneficios on id_beneficios = fk_beneficios "              
-//                    + "	where (nome_escola like '%"+nome_escola+"%' OR "
-//                    + " nome_aluno like '%"+nome_aluno+"%' OR "
-//                    + " sexo like '%"+sexo+"%'OR "
-//                    + " laudo like '%"+laudo+"%'OR "
-//                    + " suspeita like '%"+medico+"%'OR "
-////                    + " tipo_diag like '%"+tipo_diag+"%'OR "
-////                    + " CIDA.cid like '%"+cod_cid+"%'OR "
-////                    + " CIDB.cid like '%"+cod_cid_hd+"%'OR "
-//                    + " descricao_diag like '%"+descricao_diag+"%' OR "   
-//                    + " descricao_hd like '%"+descricao_hd+"%' OR "  
-//                    + " professor_aee like '%"+professor_aee+"%') " 
-//                    + " AND estatus LIKE 'A' order by nome_aluno";
 
 String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) data_cadastro, professor_aee, nome_aluno, "
                     + " date_format(data_nasc, \"%d/%m/%Y\" ) data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
@@ -280,7 +236,8 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
 //                    + " CIDB.cid like '%"+cod_cid_hd+"%'OR "
                     + " descricao_diag like '%"+descricao_diag+"%' OR "   
                     + " descricao_hd like '%"+descricao_hd+"%' OR "  
-                    + " professor_aee like '%"+professor_aee+"%') " 
+                    + " professor_aee like '%"+professor_aee+"%'OR "
+                    + " mobilidade like '%"+mobilidade+"%') "
                     + " AND estatus LIKE 'A' order by nome_aluno";
             
             ResultSet resultadoBusca;
@@ -335,14 +292,10 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
       }
         
         
-        public ResultSet PesquisaDiagnosticoUnico(String 
-                descricao_diagnostico
-        )
+        public ResultSet PesquisaDiagnosticoUnico(String descricao_diagnostico, String mobilidade)
         {
             
             conectaBanco = new ConnectionFactory().getConnectionFactory();
-
-
             
         String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) data_cadastro, professor_aee, nome_aluno, "
                            + " date_format(data_nasc, \"%d/%m/%Y\" ) data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
@@ -356,7 +309,8 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                            + "  join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid "
                            + "  join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid "
                            + "  join tbl_beneficios on id_beneficios = fk_beneficios "       
-                           + "	where descricao_diag like '%"+descricao_diagnostico+"%' "
+                           + "	where (descricao_diag like '%"+descricao_diagnostico+"%' OR "
+                           + "  mobilidade like '%"+mobilidade+"%')\n"                 
                            + " and tipo_diag like '%unico%'  \n"
                            + " AND estatus LIKE 'A'; ";
 
@@ -374,7 +328,7 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                         
       }
         
-        public ResultSet TotalAlunos(String descricao_diagnostico)
+        public ResultSet TotalAlunos(String descricao_diagnostico, String mobilidade)
         {
             
             conectaBanco = new ConnectionFactory().getConnectionFactory();
@@ -385,9 +339,9 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                         "	join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid \n" +
                         "	join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid \n" +
                         "	join tbl_beneficios on id_beneficios = fk_beneficios        \n" +
-                        "where descricao_diag like '%"+descricao_diagnostico+"%' \n" +
-//                        "and tipo_diag like '%unico%'  \n" +
-                        "AND estatus LIKE 'A';";
+                        "       where (descricao_diag like '%"+descricao_diagnostico+"%' OR \n" +
+                        "       mobilidade like '%"+mobilidade+"%')\n" +
+                        "       AND estatus LIKE 'A';";
 
             ResultSet resultadoBusca;
             try
@@ -403,7 +357,7 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                         
       }
         
-        public ResultSet TotalAlunosDiagUnico(String descricao_diagnostico)
+        public ResultSet TotalAlunosDiagUnico(String descricao_diagnostico, String mobilidade)
         {
             
             conectaBanco = new ConnectionFactory().getConnectionFactory();
@@ -414,9 +368,10 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                         "	join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid \n" +
                         "	join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid \n" +
                         "	join tbl_beneficios on id_beneficios = fk_beneficios        \n" +
-                        "where descricao_diag like '%"+descricao_diagnostico+"%' \n" +
-                        "and tipo_diag like '%unico%'  \n" +
-                        "AND estatus LIKE 'A';";
+                        "       where (descricao_diag like '%"+descricao_diagnostico+"%' OR \n" +
+                        "       mobilidade like '%"+mobilidade+"%')\n" +
+                        "       AND tipo_diag like '%unico%'  \n" +
+                        "       AND estatus LIKE 'A';";
 
              
 
@@ -434,7 +389,7 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                         
       }
         
-         public ResultSet TotalAlunosDiagMultiplo(String descricao_diagnostico)
+         public ResultSet TotalAlunosDiagMultiplo(String descricao_diagnostico, String mobilidade)
         {
             
             conectaBanco = new ConnectionFactory().getConnectionFactory();
@@ -445,9 +400,10 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                         "	join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid \n" +
                         "	join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid \n" +
                         "	join tbl_beneficios on id_beneficios = fk_beneficios        \n" +
-                        "where descricao_diag like '%"+descricao_diagnostico+"%' \n" +
-                        "and tipo_diag like '%multiplo%'  \n" +
-                        "AND estatus LIKE 'A';";
+                        "       where (descricao_diag like '%"+descricao_diagnostico+"%' OR \n" +
+                        "       mobilidade like '%"+mobilidade+"%')\n" +
+                        "       AND tipo_diag like '%multiplo%'  \n" +
+                        "       AND estatus LIKE 'A';";
 
              
 
@@ -466,7 +422,7 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
       }
          
          
-         public ResultSet TotalAlunosHDUnico(String descricao_hd)
+         public ResultSet TotalAlunosHDUnico(String descricao_hd, String mobilidade)
         {
             
             conectaBanco = new ConnectionFactory().getConnectionFactory();
@@ -477,9 +433,10 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                         "	join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid \n" +
                         "	join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid \n" +
                         "	join tbl_beneficios on id_beneficios = fk_beneficios        \n" +
-                        "where descricao_hd like '%"+descricao_hd+"%' \n" +
-                        "and tipo_hd like '%unico%'  \n" +
-                        "AND estatus LIKE 'A';";
+                        "       where (descricao_hd like '%"+descricao_hd+"%' OR \n" +
+                        "       mobilidade like '%"+mobilidade+"%')\n" +
+                        "       AND tipo_hd like '%unico%'  \n" +
+                        "       AND estatus LIKE 'A';";
 
              
 
@@ -497,7 +454,7 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                         
       }
         
-         public ResultSet TotalAlunosHDMultiplo(String descricao_hd)
+         public ResultSet TotalAlunosHDMultiplo(String descricao_hd, String mobilidade)
         {
             
             conectaBanco = new ConnectionFactory().getConnectionFactory();
@@ -508,9 +465,10 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                         "	join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid \n" +
                         "	join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid \n" +
                         "	join tbl_beneficios on id_beneficios = fk_beneficios        \n" +
-                        "where descricao_hd like '%"+descricao_hd+"%' \n" +
-                        "and tipo_hd like '%multiplo%'  \n" +
-                        "AND estatus LIKE 'A';";
+                        "       where (descricao_hd like '%"+descricao_hd+"%' OR \n" +
+                        "       mobilidade like '%"+mobilidade+"%')\n" +
+                        "       AND tipo_hd like '%multiplo%'  \n" +
+                        "       AND estatus LIKE 'A';";
 
              
 
@@ -528,9 +486,8 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                         
       }
         
-         public ResultSet PesquisaDiagnosticoMultiplo(String 
-                descricao_diagnostico
-        )
+         public ResultSet PesquisaDiagnosticoMultiplo(String descricao_diagnostico, String mobilidade)
+        
         {
             
             conectaBanco = new ConnectionFactory().getConnectionFactory();
@@ -542,12 +499,13 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                            + " observacoes, transporte, auxiliar, mobilidade, telefone, "
                            + " beneficio_recebido, estatus, id_aluno "
                            + " from tbl_aluno "
-                           + "	 join tbl_escola on id_escola = fk_professor_escola"
-                           + "	 join tbl_professor on id_professor = fk_professor_escola"
+                           + "	join tbl_escola on id_escola = fk_professor_escola"
+                           + "	join tbl_professor on id_professor = fk_professor_escola"
                            + "  join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid "
                            + "  join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid "
                            + "  join tbl_beneficios on id_beneficios = fk_beneficios "       
-                           + "	where descricao_diag like '%"+descricao_diagnostico+"%' "
+                           + "	where (descricao_diag like '%"+descricao_diagnostico+"%' OR "
+                           + " mobilidade like '%"+mobilidade+"%')\n"
                            + " and tipo_diag like '%multiplo%'  \n"
                            + " AND estatus LIKE 'A'; ";
 
@@ -567,8 +525,7 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
         
         
         
-        public ResultSet PesquisaHD(String 
-                descricao_hd)
+        public ResultSet PesquisaHD(String descricao_hd, String mobilidade)
         {
             
             conectaBanco = new ConnectionFactory().getConnectionFactory();
@@ -587,7 +544,9 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                     + "  join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid "
                     + "  join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid "
                     + "  join tbl_beneficios on id_beneficios = fk_beneficios "       
-                    + "	where descricao_hd like '%"+descricao_hd+"%' AND estatus LIKE 'A'; ";
+                    + "	where (descricao_hd like '%"+descricao_hd+"%' OR "
+                    + " mobilidade like '%"+mobilidade+"%')\n"
+                    + " AND estatus LIKE 'A'; ";
             
 
             ResultSet resultadoBusca;
@@ -603,9 +562,7 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
         }                
                         
       }
-        public ResultSet PesquisaHDUnico(String 
-                descricao_hipotese
-        )
+        public ResultSet PesquisaHDUnico(String descricao_hd, String mobilidade)
         {
             
             conectaBanco = new ConnectionFactory().getConnectionFactory();
@@ -624,8 +581,9 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                            + "  join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid "
                            + "  join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid "
                            + "  join tbl_beneficios on id_beneficios = fk_beneficios "       
-                           + "	where descricao_hd like '%"+descricao_hipotese+"%' "
-                           + " and tipo_hd like '%unico%'  \n"
+                           + "	where (descricao_hd like '%"+descricao_hd+"%' OR "
+                           + " mobilidade like '%"+mobilidade+"%')\n"
+                           + " AND tipo_hd like '%unico%'  \n"
                            + " AND estatus LIKE 'A'; ";
 
             ResultSet resultadoBusca;
@@ -642,9 +600,7 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                         
       }
         
-        public ResultSet PesquisaHDMultiplo(String 
-                descricao_hipotese
-        )
+        public ResultSet PesquisaHDMultiplo(String descricao_hd, String mobilidade)
         {
             
             conectaBanco = new ConnectionFactory().getConnectionFactory();
@@ -663,7 +619,8 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                            + "  join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid "
                            + "  join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid "
                            + "  join tbl_beneficios on id_beneficios = fk_beneficios "       
-                           + "	where descricao_hd like '%"+descricao_hipotese+"%' "
+                           + "	where (descricao_hd like '%"+descricao_hd+"%' OR "
+                           + " mobilidade like '%"+mobilidade+"%')\n"
                            + " and tipo_hd like '%multiplo%'  \n"
                            + " AND estatus LIKE 'A'; ";
 

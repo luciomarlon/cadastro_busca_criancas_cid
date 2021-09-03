@@ -302,7 +302,7 @@ public class FrmCadastroAlunos extends javax.swing.JFrame {
 
         txtDataNasc.setBackground(new java.awt.Color(204, 255, 255));
         try {
-            txtDataNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
+            txtDataNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -310,11 +310,10 @@ public class FrmCadastroAlunos extends javax.swing.JFrame {
 
         txtDatacadastro.setBackground(new java.awt.Color(204, 255, 255));
         try {
-            txtDatacadastro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
+            txtDatacadastro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtDatacadastro.setText(""); // NOI18N
         getContentPane().add(txtDatacadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 160, 35));
 
         txtObservacoes.setColumns(20);

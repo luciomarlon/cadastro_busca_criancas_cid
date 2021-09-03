@@ -66,7 +66,6 @@ public class FrmAtualizaProfessor extends javax.swing.JFrame {
         btnAtualizar = new javax.swing.JButton();
         txtProfessorRegular = new javax.swing.JTextField();
         txtProfessorAEE = new javax.swing.JTextField();
-        txtDataAtualizacao = new javax.swing.JTextField();
         cbAuxiliarDeSala = new javax.swing.JComboBox<>();
         cbEstatus = new javax.swing.JComboBox<>();
         cbTurnoProfessor = new javax.swing.JComboBox<>();
@@ -75,6 +74,7 @@ public class FrmAtualizaProfessor extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         cbEscola = new javax.swing.JComboBox<>();
         brnCancelar = new javax.swing.JButton();
+        txtDataAtualizacao = new javax.swing.JFormattedTextField();
 
         jLabel2.setText("jLabel2");
 
@@ -115,10 +115,8 @@ public class FrmAtualizaProfessor extends javax.swing.JFrame {
 
         txtProfessorAEE.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
-        txtDataAtualizacao.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-
         cbAuxiliarDeSala.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cbAuxiliarDeSala.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO" }));
+        cbAuxiliarDeSala.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO", "PARCIAL" }));
 
         cbEstatus.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cbEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "A", "D" }));
@@ -146,6 +144,13 @@ public class FrmAtualizaProfessor extends javax.swing.JFrame {
                 brnCancelarActionPerformed(evt);
             }
         });
+
+        txtDataAtualizacao.setBackground(new java.awt.Color(204, 255, 255));
+        try {
+            txtDataAtualizacao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -176,10 +181,10 @@ public class FrmAtualizaProfessor extends javax.swing.JFrame {
                                     .addComponent(cbEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel10))
-                                .addGap(167, 167, 167)
+                                .addGap(182, 182, 182)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8)
-                                    .addComponent(txtDataAtualizacao, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtDataAtualizacao, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel9)
                             .addComponent(txtEscolaVinculada, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -188,7 +193,7 @@ public class FrmAtualizaProfessor extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(brnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(cbEscola, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,16 +226,15 @@ public class FrmAtualizaProfessor extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
-                        .addComponent(cbEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtDataAtualizacao, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDataAtualizacao, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbEscola, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(brnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -264,10 +268,12 @@ public class FrmAtualizaProfessor extends javax.swing.JFrame {
     
         
           
-//        String diaCadastro = txtDatacadastro.getText().substring(0, 2);
-//        String mesCadastro = txtDatacadastro.getText().substring(3, 5);
-//        String anoCadastro = txtDatacadastro.getText().substring(6);
-//          
+        String diaAtualiza = txtDataAtualizacao.getText().substring(0, 2);
+        String mesAtualiza = txtDataAtualizacao.getText().substring(3, 5);
+        String anoAtualiza = txtDataAtualizacao.getText().substring(6);
+        
+        String dataAtualiza = anoAtualiza+"-"+mesAtualiza+"-"+diaAtualiza;
+         
 
 
 
@@ -290,7 +296,13 @@ public class FrmAtualizaProfessor extends javax.swing.JFrame {
                     + "pode ficar vazio");
         }  
 
-        else if (txtDataAtualizacao.getText().isEmpty())  
+//        else if (txtDataAtualizacao.getText().isEmpty())  
+//        {
+//            JOptionPane.showMessageDialog(null, "Atualização/cadastro"
+//                    + "não pode ficar vazio.");
+//        }  
+        
+         else if (dataAtualiza.isEmpty())  
         {
             JOptionPane.showMessageDialog(null, "Atualização/cadastro"
                     + "não pode ficar vazio.");
@@ -321,7 +333,8 @@ public class FrmAtualizaProfessor extends javax.swing.JFrame {
                     txtProfessorRegular.getText().toUpperCase(),                    
                     cbAuxiliarDeSala.getSelectedItem().toString(),    
                     cbTurnoProfessor.getSelectedItem().toString(),                                                                        
-                    txtDataAtualizacao.getText(),
+//                    txtDataAtualizacao.getText(),
+                    dataAtualiza,
                     cbEstatus.getSelectedItem().toString(),
                     id_codigoescola,
                     codigoAtualiza                          
@@ -427,7 +440,7 @@ public class FrmAtualizaProfessor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField txtDataAtualizacao;
+    private javax.swing.JFormattedTextField txtDataAtualizacao;
     private javax.swing.JTextField txtEscolaVinculada;
     private javax.swing.JTextField txtProfessorAEE;
     private javax.swing.JTextField txtProfessorRegular;

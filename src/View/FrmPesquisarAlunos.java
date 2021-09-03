@@ -911,6 +911,7 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
         String descricao_diag   = txtPesquisaAlunos.getText().toUpperCase();
         String descricao_hd     = txtPesquisaAlunos.getText().toUpperCase();
         String professor_aee    = txtPesquisaAlunos.getText().toUpperCase();
+        String mobilidade       = txtPesquisaAlunos.getText().toUpperCase();
         
         
         DefaultTableModel tabela = (DefaultTableModel) tbListarAlunos.getModel();
@@ -925,7 +926,8 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
                 medico,
                 descricao_diag,
                 descricao_hd,
-                professor_aee
+                professor_aee,
+                mobilidade
         );
         
         try{
@@ -972,7 +974,9 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
     private void PesquisarTotal()
     {
         
-        String total_diagnostico   = txtPesquisaAlunos.getText().toUpperCase();        
+        String total_diagnostico   = txtPesquisaAlunos.getText().toUpperCase();  
+        
+        String mobilidade   = txtPesquisaAlunos.getText().toUpperCase();
        
         String totaltxt = txtTotalDiagnosticos.getText();                        
         
@@ -980,7 +984,7 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
         
         
         DAO_Alunos diagnostico = new DAO_Alunos();
-        ResultSet busca = diagnostico.TotalAlunos(total_diagnostico);
+        ResultSet busca = diagnostico.TotalAlunos(total_diagnostico, mobilidade);
         
         
         try{
@@ -1009,7 +1013,9 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
     private void PesquisarTotalDiagUnico()
     {
         
-        String total_diagnostico   = txtPesquisaAlunos.getText().toUpperCase();        
+        String total_diagnostico   = txtPesquisaAlunos.getText().toUpperCase();
+        
+        String mobilidade   = txtPesquisaAlunos.getText().toUpperCase();        
        
         String totaltxt = txtTotalDiagnosticos.getText();                        
         
@@ -1017,7 +1023,7 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
         
         
         DAO_Alunos diagnostico = new DAO_Alunos();
-        ResultSet busca = diagnostico.TotalAlunosDiagUnico(total_diagnostico);
+        ResultSet busca = diagnostico.TotalAlunosDiagUnico(total_diagnostico, mobilidade);
         
         
         try{
@@ -1044,7 +1050,9 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
      private void PesquisarTotalDiagMultiplo()
     {
         
-        String total_diagnostico   = txtPesquisaAlunos.getText().toUpperCase();        
+        String total_diagnostico   = txtPesquisaAlunos.getText().toUpperCase();       
+        
+        String mobilidade   = txtPesquisaAlunos.getText().toUpperCase();
        
         String totaltxt = txtTotalDiagnosticos.getText();                        
         
@@ -1052,7 +1060,7 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
         
         
         DAO_Alunos diagnostico = new DAO_Alunos();
-        ResultSet busca = diagnostico.TotalAlunosDiagMultiplo(total_diagnostico);
+        ResultSet busca = diagnostico.TotalAlunosDiagMultiplo(total_diagnostico, mobilidade);
                 
         try{
                         
@@ -1067,8 +1075,6 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
            txtTotal.setText(busca.getString(1));
            txtTotalDiagnosticos.setText(total_diagnostico);
            
-
-
             }
         }catch(SQLException error){
             throw new RuntimeException("Houve um problema ao efetuar a busca"
@@ -1080,7 +1086,9 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
      private void PesquisarHDTotalUnico()
     {
         
-        String total_diagnostico   = txtPesquisaAlunos.getText().toUpperCase();        
+        String total_diagnostico   = txtPesquisaAlunos.getText().toUpperCase();   
+        
+        String mobilidade   = txtPesquisaAlunos.getText().toUpperCase();
        
         String totaltxt = txtTotalDiagnosticos.getText();                        
         
@@ -1088,7 +1096,7 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
         
         
         DAO_Alunos diagnostico = new DAO_Alunos();
-        ResultSet busca = diagnostico.TotalAlunosHDUnico(total_diagnostico);
+        ResultSet busca = diagnostico.TotalAlunosHDUnico(total_diagnostico, mobilidade);
         
         
         try{
@@ -1117,7 +1125,9 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
      private void PesquisarTotalHDMultiplo()
     {
         
-        String total_diagnostico   = txtPesquisaAlunos.getText().toUpperCase();        
+        String total_diagnostico   = txtPesquisaAlunos.getText().toUpperCase();    
+        
+        String mobilidade   = txtPesquisaAlunos.getText().toUpperCase();
        
         String totaltxt = txtTotalDiagnosticos.getText();                        
         
@@ -1125,7 +1135,7 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
         
         
         DAO_Alunos diagnostico = new DAO_Alunos();
-        ResultSet busca = diagnostico.TotalAlunosHDMultiplo(total_diagnostico);
+        ResultSet busca = diagnostico.TotalAlunosHDMultiplo(total_diagnostico, mobilidade);
                 
         try{
                         
@@ -1203,10 +1213,11 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
     {
         
     String tipo_hd = txtPesquisaAlunos.getText();
+    
+    String mobilidade   = txtPesquisaAlunos.getText().toUpperCase();
        
         DAO_Alunos buscaralunos = new DAO_Alunos();
-        ResultSet buscar = buscaralunos.PesquisaHD(
-                tipo_hd);
+        ResultSet buscar = buscaralunos.PesquisaHD(tipo_hd, mobilidade);
             
         DefaultTableModel tabela = (DefaultTableModel) tbListarAlunos.getModel();
         tabela.setNumRows(0);
@@ -1254,9 +1265,10 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
                
         String descricao_diagnostico = txtPesquisaAlunos.getText();  
         
+        String mobilidade   = txtPesquisaAlunos.getText().toUpperCase();
+        
          DAO_Alunos diagnosticounico = new DAO_Alunos();
-         ResultSet buscar = diagnosticounico.PesquisaDiagnosticoUnico(
-                 descricao_diagnostico);
+         ResultSet buscar = diagnosticounico.PesquisaDiagnosticoUnico(descricao_diagnostico, mobilidade);
             
         DefaultTableModel tabela = (DefaultTableModel) tbListarAlunos.getModel();
         tabela.setNumRows(0);
@@ -1306,10 +1318,11 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
           
         String descricao_diagnostico = txtPesquisaAlunos.getText();  
         
+        String mobilidade   = txtPesquisaAlunos.getText().toUpperCase();
+        
        
          DAO_Alunos buscarcid = new DAO_Alunos();
-         ResultSet buscar = buscarcid.PesquisaDiagnosticoMultiplo(
-                 descricao_diagnostico);
+         ResultSet buscar = buscarcid.PesquisaDiagnosticoMultiplo(descricao_diagnostico, mobilidade);
             
         DefaultTableModel tabela = (DefaultTableModel) tbListarAlunos.getModel();
         tabela.setNumRows(0);
@@ -1359,9 +1372,10 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
                
         String descricao_hipotese = txtPesquisaAlunos.getText();  
         
+        String mobilidade   = txtPesquisaAlunos.getText().toUpperCase();
+        
          DAO_Alunos hipotese = new DAO_Alunos();
-         ResultSet buscar = hipotese.PesquisaHDUnico(
-                 descricao_hipotese);
+         ResultSet buscar = hipotese.PesquisaHDUnico(descricao_hipotese, mobilidade);
             
         DefaultTableModel tabela = (DefaultTableModel) tbListarAlunos.getModel();
         tabela.setNumRows(0);
@@ -1412,9 +1426,10 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
                
         String descricao_hipotese = txtPesquisaAlunos.getText();  
         
+        String mobilidade   = txtPesquisaAlunos.getText().toUpperCase();
+        
          DAO_Alunos hipotese = new DAO_Alunos();
-         ResultSet buscar = hipotese.PesquisaHDMultiplo(
-                 descricao_hipotese);
+         ResultSet buscar = hipotese.PesquisaHDMultiplo(descricao_hipotese, mobilidade);
             
         DefaultTableModel tabela = (DefaultTableModel) tbListarAlunos.getModel();
         tabela.setNumRows(0);

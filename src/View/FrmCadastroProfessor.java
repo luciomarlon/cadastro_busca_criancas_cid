@@ -107,7 +107,7 @@ public class FrmCadastroProfessor extends javax.swing.JFrame {
         });
 
         cbAuxiliarDeSala.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cbAuxiliarDeSala.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO" }));
+        cbAuxiliarDeSala.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO", "PARCIAL" }));
 
         cbEstatus.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cbEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "A", "D" }));
@@ -128,11 +128,10 @@ public class FrmCadastroProfessor extends javax.swing.JFrame {
 
         txtDatacadastro.setBackground(new java.awt.Color(204, 255, 255));
         try {
-            txtDatacadastro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
+            txtDatacadastro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtDatacadastro.setText(""); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,7 +149,7 @@ public class FrmCadastroProfessor extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
                                     .addComponent(cbAuxiliarDeSala, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(173, 173, 173)
+                                .addGap(164, 164, 164)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(cbTurnoProfessor, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel6)))
@@ -238,8 +237,7 @@ public class FrmCadastroProfessor extends javax.swing.JFrame {
           
           String diaCadastro = txtDatacadastro.getText().substring(0, 2);
           String mesCadastro = txtDatacadastro.getText().substring(3, 5);
-          String anoCadastro = txtDatacadastro.getText().substring(6);
-          
+          String anoCadastro = txtDatacadastro.getText().substring(6);          
           
           String dataCadastro = anoCadastro+"-"+mesCadastro+"-"+diaCadastro;
         
