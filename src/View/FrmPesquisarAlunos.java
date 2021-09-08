@@ -82,6 +82,9 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
             tbListarAlunos.getColumnModel().getColumn(0).setMinWidth(0);
             tbListarAlunos.getColumnModel().getColumn(0).setPreferredWidth(0);
             tbListarAlunos.getColumnModel().getColumn(0).setMaxWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(8).setMinWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(8).setPreferredWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(8).setMaxWidth(0);
             tbListarAlunos.getColumnModel().getColumn(23).setMinWidth(0);
             tbListarAlunos.getColumnModel().getColumn(23).setPreferredWidth(0);
             tbListarAlunos.getColumnModel().getColumn(23).setMaxWidth(0);

@@ -272,7 +272,7 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Feminino", "Masculino" }));
         getContentPane().add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 110, 35));
 
-        cbSuspeita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Familiar", "Medico", "Professor" }));
+        cbSuspeita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Medico", "NE", "Familiar", "Professor" }));
         getContentPane().add(cbSuspeita, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 120, 35));
 
         cbLaudo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Sim", "Não" }));
@@ -341,7 +341,7 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         txtNomeAluno.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(txtNomeAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 571, 35));
 
-        cbAuxiliar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Sim", "Não", "Parcial" }));
+        cbAuxiliar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Sim", "Não", "Parcial", "NE" }));
         getContentPane().add(cbAuxiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 680, 110, 35));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -352,7 +352,7 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         jLabel27.setText("Utiliza Transporte");
         getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 640, 170, 26));
 
-        cbTransporte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Sim", "Não" }));
+        cbTransporte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Sim", "Não", "NE" }));
         getContentPane().add(cbTransporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 680, 110, 35));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
