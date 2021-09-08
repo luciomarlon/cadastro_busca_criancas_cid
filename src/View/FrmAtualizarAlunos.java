@@ -297,10 +297,10 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         cbCidAluno_hd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE" }));
         getContentPane().add(cbCidAluno_hd, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 500, 270, 35));
 
-        cbTurnoEscolar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Manhã", "Inter", "Tarde" }));
+        cbTurnoEscolar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Manhã", "Inter", "Tarde", "NE" }));
         getContentPane().add(cbTurnoEscolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 660, 110, 35));
 
-        cbTurnoAEE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Manhã", "Inter", "Tarde" }));
+        cbTurnoAEE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Manhã", "Inter", "Tarde", "NE" }));
         getContentPane().add(cbTurnoAEE, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 660, 120, 35));
 
         cbProfessor.setEditable(true);

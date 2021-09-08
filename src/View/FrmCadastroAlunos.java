@@ -12,9 +12,13 @@ import DAO.DAO_ProfessoresAEE;
 import DAO.LimitarDigitos;
 import Model.AlunosAEE;
 import java.awt.HeadlessException;
+import java.awt.event.ItemListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
@@ -26,13 +30,14 @@ public class FrmCadastroAlunos extends javax.swing.JFrame {
     public FrmCadastroAlunos() {
         initComponents();
 
-        AutoCompleteDecorator.decorate(cbBeneficios);        
-        AutoCompleteDecorator.decorate(cbCidDiagAluno);
-        AutoCompleteDecorator.decorate(cbTipoDiag);
-        AutoCompleteDecorator.decorate(cbEstatus);
+           
         AutoCompleteDecorator.decorate(cbLaudo);        
-        AutoCompleteDecorator.decorate(cbSexo);
         AutoCompleteDecorator.decorate(cbSuspeita);
+        AutoCompleteDecorator.decorate(cbBeneficios);     
+        AutoCompleteDecorator.decorate(cbTipoDiag);
+        AutoCompleteDecorator.decorate(cbCidDiagAluno);
+        AutoCompleteDecorator.decorate(cbEstatus);
+        AutoCompleteDecorator.decorate(cbSexo);
         AutoCompleteDecorator.decorate(cbCidAluno_hd);
         AutoCompleteDecorator.decorate(cbTipoHD);
         AutoCompleteDecorator.decorate(cbTurnoAEE);
@@ -240,10 +245,20 @@ public class FrmCadastroAlunos extends javax.swing.JFrame {
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Feminino", "Masculino" }));
         getContentPane().add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 110, 35));
 
-        cbSuspeita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Familiar", "Medico", "Professor" }));
+        cbSuspeita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Medico", "Familiar", "Professor", " " }));
+        cbSuspeita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSuspeitaActionPerformed(evt);
+            }
+        });
         getContentPane().add(cbSuspeita, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, 120, 35));
 
-        cbLaudo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Sim", "Não" }));
+        cbLaudo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Sim", "Não", " " }));
+        cbLaudo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbLaudoActionPerformed(evt);
+            }
+        });
         getContentPane().add(cbLaudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 110, 35));
 
         cbBeneficios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE" }));
@@ -276,7 +291,7 @@ public class FrmCadastroAlunos extends javax.swing.JFrame {
         cbCidAluno_hd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE" }));
         getContentPane().add(cbCidAluno_hd, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 550, 270, 35));
 
-        cbTurnoAEE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Manhã", "Inter", "Tarde" }));
+        cbTurnoAEE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Manhã", "Inter", "Tarde", "NE" }));
         getContentPane().add(cbTurnoAEE, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 710, 120, 35));
 
         txtCpfAluno.setBackground(new java.awt.Color(204, 255, 255));
@@ -326,7 +341,7 @@ public class FrmCadastroAlunos extends javax.swing.JFrame {
         jLabel25.setText("CID - Diagnóstico");
         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, -1, 26));
 
-        cbTurnoEscolar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Manhã", "Inter", "Tarde" }));
+        cbTurnoEscolar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Manhã", "Inter", "Tarde", "NE" }));
         cbTurnoEscolar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbTurnoEscolarActionPerformed(evt);
@@ -400,8 +415,16 @@ public class FrmCadastroAlunos extends javax.swing.JFrame {
     private void cbCidDiagAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCidDiagAlunoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbCidDiagAlunoActionPerformed
-    
-    //    Vector<Integer> id_beneficio = new Vector<>();
+
+    private void cbSuspeitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSuspeitaActionPerformed
+        
+        
+    }//GEN-LAST:event_cbSuspeitaActionPerformed
+
+    private void cbLaudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLaudoActionPerformed
+        
+        
+    }//GEN-LAST:event_cbLaudoActionPerformed
 
     public static void main(String args[]) {
        

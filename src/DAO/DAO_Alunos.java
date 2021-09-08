@@ -201,9 +201,6 @@ public class DAO_Alunos
                 String sexo,
                 String laudo,
                 String medico,
-//              String tipo_diag,
-//              String cod_cid,
-//              String cod_cid_hd,
                 String descricao_diag,
                 String descricao_hd,
                 String professor_aee,
@@ -220,9 +217,9 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                     + " descricao_hd, ano_escolar_aluno, turno_escolar, turno_aee, profregular, "
                     + " observacoes, transporte, auxiliar, mobilidade, telefone, "
                     + " beneficio_recebido, estatus, id_aluno "
-                    + "  from tbl_aluno "
-                    + "	 join tbl_escola on id_escola = fk_professor_escola"
+                    + "  from tbl_aluno "                    
                     + "	 join tbl_professor on id_professor = fk_professor_escola"
+                    + "	 join tbl_escola on id_escola = fk_professor"
                     + "  join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid "
                     + "  join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid "
                     + "  join tbl_beneficios on id_beneficios = fk_beneficios "              
@@ -231,14 +228,11 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                     + " sexo like '%"+sexo+"%'OR "
                     + " laudo like '%"+laudo+"%'OR "
                     + " suspeita like '%"+medico+"%'OR "
-//                    + " tipo_diag like '%"+tipo_diag+"%'OR "
-//                    + " CIDA.cid like '%"+cod_cid+"%'OR "
-//                    + " CIDB.cid like '%"+cod_cid_hd+"%'OR "
                     + " descricao_diag like '%"+descricao_diag+"%' OR "   
                     + " descricao_hd like '%"+descricao_hd+"%' OR "  
                     + " professor_aee like '%"+professor_aee+"%'OR "
                     + " mobilidade like '%"+mobilidade+"%') "
-                    + " AND estatus LIKE 'A' order by nome_aluno";
+                    + " AND estatus LIKE 'A' order by professor_aee";
             
             ResultSet resultadoBusca;
             try

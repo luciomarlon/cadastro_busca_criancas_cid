@@ -142,15 +142,6 @@ public class DAO_ProfessoresAEE {
             
             conectaBanco = new ConnectionFactory().getConnectionFactory();
 
-//String sql_pesquisar = "select professor_aee, count(*) qtd_alunos, escola_vinculada, prof_regular,\n"
-//                    + " auxiliar_sala, turno_professor, dt_cria_professor,\n"
-//                    + " estatusprofessor, nome_escola, id_professor from tbl_aluno " 
-//                    + " join tbl_professor on id_professor = fk_professor_escola "
-//                    + " join tbl_escola on id_escola = fk_professor\n"
-//                    + " WHERE ( professor_aee like '%"+nome_professor+"%' "                    
-//                    + " or escola_vinculada like '%"+auxiliar_de_sala+"%'"
-//                    + " or auxiliar_sala like '%"+escola_vinculada+"%') AND "
-//                    + " estatusprofessor like 'A' AND estatus like 'A' GROUP by professor_aee;";
 
 String sql_pesquisar = "select professor_aee, count(*) qtd_alunos, escola_vinculada, prof_regular,\n"
                     + " auxiliar_sala, turno_professor, date_format(dt_cria_professor, \"%d/%m/%Y\" ) dt_cria_professor,\n"
@@ -187,16 +178,6 @@ String sql_pesquisar = "select professor_aee, count(*) qtd_alunos, escola_vincul
         {
             
             conectaBanco = new ConnectionFactory().getConnectionFactory();
-//            String sql_pesquisar = "select  professor_aee, escola_vinculada, "
-//                    + " prof_regular, auxiliar_sala, "
-//                    + " turno_professor, dt_cria_professor, "
-//                    + " estatusprofessor, nome_escola, id_professor  from tbl_escola" 
-//                    + " join tbl_professor on id_escola = fk_professor " 
-//                    + " WHERE ( professor_aee like '%"+nome_professor+"%' "
-//                    + " or nome_escola like '%"+nome_escola+"%' "
-//                    + " or escola_vinculada like '%"+auxiliar_de_sala+"%'"
-//                    + " or auxiliar_sala like '%"+escola_vinculada+"%') "
-//                    + " AND estatusprofessor like 'A'; ";
 
 
 String sql_pesquisar = "select  professor_aee, escola_vinculada, "
@@ -252,15 +233,6 @@ String sql_pesquisar = "select  professor_aee, escola_vinculada, "
      public ResultSet listarProfessores() 
     {
         conectaBanco = new ConnectionFactory().getConnectionFactory();     
-
-
-//String sqlLista = "select professor_aee, count(*) qtd_alunos, escola_vinculada, prof_regular,\n" +
-//"                    auxiliar_sala, turno_professor, dt_cria_professor,\n" +
-//"                    estatusprofessor, nome_escola, id_professor from tbl_aluno\n" +
-//"                    join tbl_professor on id_professor = fk_professor_escola\n" +
-//"                    join tbl_escola on id_escola = fk_professor\n" +
-//"                    where estatusprofessor like 'A' AND estatus like 'A'\n" +
-//"                    group by professor_aee order by professor_aee;";
 
 String sqlLista = "select professor_aee, count(*) qtd_alunos, escola_vinculada, prof_regular,\n" +
 "                    auxiliar_sala, turno_professor, date_format(dt_cria_professor, \"%d/%m/%Y\" ) dt_cria_professor,\n" +
