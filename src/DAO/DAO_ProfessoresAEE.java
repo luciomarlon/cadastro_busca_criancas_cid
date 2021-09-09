@@ -82,24 +82,12 @@ public class DAO_ProfessoresAEE {
     {
         conectaBanco = new ConnectionFactory().getConnectionFactory();     
 
-//            String sqlLista = "select professor_aee, escola_vinculada, prof_regular, "
-//                    + " auxiliar_sala, turno_professor, dt_cria_professor, "
-//                    + " estatusprofessor, nome_escola, id_professor from tbl_escola "
-//                    + " join tbl_professor "
-//                    + " on id_escola = fk_professor\n"
-//                    + " where estatusprofessor like 'A' order by professor_aee;";
-
  String sqlLista = "select professor_aee, escola_vinculada, prof_regular, "
                     + " auxiliar_sala, turno_professor, date_format(dt_cria_professor, \"%d/%m/%Y\" ) dt_cria_professor, "
                     + " estatusprofessor, nome_escola, id_professor from tbl_escola "
                     + " join tbl_professor "
                     + " on id_escola = fk_professor\n"
                     + " where estatusprofessor like 'A' order by professor_aee;";
-
-            
-            
-            
-            
 
         try 
         {
@@ -136,7 +124,8 @@ public class DAO_ProfessoresAEE {
     public ResultSet BuscarProfessor(
                                          String nome_professor,                                           
                                          String auxiliar_de_sala,
-                                         String escola_vinculada                                                                                                           
+                                         String escola_vinculada,
+                                         String nome_escola
                                         )
         {
             
@@ -148,7 +137,8 @@ String sql_pesquisar = "select professor_aee, count(*) qtd_alunos, escola_vincul
                     + " estatusprofessor, nome_escola, id_professor from tbl_aluno " 
                     + " join tbl_professor on id_professor = fk_professor_escola "
                     + " join tbl_escola on id_escola = fk_professor\n"
-                    + " WHERE ( professor_aee like '%"+nome_professor+"%' "                    
+                    + " WHERE ( nome_escola like '%"+nome_escola+"%' OR "
+                    + "professor_aee like '%"+nome_professor+"%' "                    
                     + " or escola_vinculada like '%"+auxiliar_de_sala+"%'"
                     + " or auxiliar_sala like '%"+escola_vinculada+"%') AND "
                     + " estatusprofessor like 'A' AND estatus like 'A' GROUP by professor_aee;";

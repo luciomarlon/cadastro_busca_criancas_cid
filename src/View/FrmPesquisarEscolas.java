@@ -606,6 +606,8 @@ public class FrmPesquisarEscolas extends javax.swing.JFrame {
            "Ano escolar","Nome da escola", "Setor", "id"}));
             tbListarEscolas.getColumnModel().getColumn(3).setMinWidth(0);
             tbListarEscolas.getColumnModel().getColumn(3).setMaxWidth(0);
+            
+            tbListarEscolas.getTableHeader().setReorderingAllowed (false);
         
         
         DefaultTableModel tabelaAlunos = 

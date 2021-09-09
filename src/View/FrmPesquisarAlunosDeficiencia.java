@@ -424,7 +424,7 @@ public class FrmPesquisarAlunosDeficiencia extends javax.swing.JFrame {
                 if(txtPesquisarCidDiagosticos.getText().equals(""))
                 {
                     ListarDeficiencias();
-//                    cbBuscarTipo.setSelectedItem("SELECIONE");                    
+           
                 }
                 else
                 {
@@ -638,6 +638,8 @@ public class FrmPesquisarAlunosDeficiencia extends javax.swing.JFrame {
         
         DefaultTableModel tabelaProfessores = 
                 (DefaultTableModel)tbListarCid.getModel();
+      
+        tbListarCid.getTableHeader().setReorderingAllowed (false);
         
         DAO_Cid listardeficiencias = new DAO_Cid();
         ResultSet retornardeficiencia = listardeficiencias.listarCidDeficiencias();
@@ -692,13 +694,15 @@ public class FrmPesquisarAlunosDeficiencia extends javax.swing.JFrame {
         String codigo_cid               = txtPesquisarCidDiagosticos.getText();                  
         String descricao_diagnostico    = txtPesquisarCidDiagosticos.getText();
         String professor_aee            = txtPesquisarCidDiagosticos.getText();
+        String nome_escola              = txtPesquisarCidDiagosticos.getText();
        
          DAO_Cid buscarcid = new DAO_Cid();
          ResultSet buscar = buscarcid.PesquisarDiagnostico(
                  nome_aluno,
                  codigo_cid,                               
                  descricao_diagnostico,
-                 professor_aee
+                 professor_aee,
+                 nome_escola
                  );
             
         DefaultTableModel tabela = (DefaultTableModel) tbListarCid.getModel();

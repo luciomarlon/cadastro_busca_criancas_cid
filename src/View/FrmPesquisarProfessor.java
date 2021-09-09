@@ -210,6 +210,8 @@ public class FrmPesquisarProfessor extends javax.swing.JFrame {
         DefaultTableModel tabelaProfessores = 
                 (DefaultTableModel)tbListarProfessores.getModel();
         
+        tbListarProfessores.getTableHeader().setReorderingAllowed (false);
+        
         DAO.DAO_ProfessoresAEE listaalunos = new DAO_ProfessoresAEE();
         ResultSet retornaProfessor = listaalunos.listarProfessor();
         

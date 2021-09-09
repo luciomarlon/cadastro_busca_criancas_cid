@@ -442,6 +442,8 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
         DefaultTableModel tabelaAlunos = 
                 (DefaultTableModel)tbListarAlunos.getModel();
         
+        tbListarAlunos.getTableHeader().setReorderingAllowed (false);
+        
         DAO.DAO_Alunos listaalunos = new DAO_Alunos();
         ResultSet retornaAlunos = listaalunos.listarAlunos();
         

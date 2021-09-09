@@ -201,6 +201,8 @@ public class FrmBuscarProfessor extends javax.swing.JFrame {
         DefaultTableModel tabelaProfessores = 
                 (DefaultTableModel)tbListarProfessores.getModel();
         
+         tbListarProfessores.getTableHeader().setReorderingAllowed (false);
+        
         DAO.DAO_ProfessoresAEE listarprofessor = new DAO_ProfessoresAEE();
         ResultSet retornaProfessor = listarprofessor.listarProfessores();
         
@@ -246,20 +248,19 @@ public class FrmBuscarProfessor extends javax.swing.JFrame {
          tbListarProfessores.getColumnModel().getColumn(6).setMinWidth(0);
          tbListarProfessores.getColumnModel().getColumn(6).setMaxWidth(0);
         
-        
         String pesquisarprofessor   = txtPesquisarProfessores.getText().toUpperCase();        
         String escola_vinculada     = txtPesquisarProfessores.getText().toUpperCase();
         String auxiliar_sala        = txtPesquisarProfessores.getText().toUpperCase();
-        
+        String nome_escola          = txtPesquisarProfessores.getText().toUpperCase();
         
         DefaultTableModel tabela = (DefaultTableModel) tbListarProfessores.getModel();
         tabela.setNumRows(0);
         
+        tbListarProfessores.getTableHeader().setReorderingAllowed (false);
+        
         DAO_ProfessoresAEE buscarprofessor = new DAO_ProfessoresAEE();
         ResultSet buscar = buscarprofessor.BuscarProfessor(
-                pesquisarprofessor,                 
-                escola_vinculada,
-                auxiliar_sala);                 
+                pesquisarprofessor, escola_vinculada, auxiliar_sala, nome_escola);                 
         
         try{
             while(buscar.next()){

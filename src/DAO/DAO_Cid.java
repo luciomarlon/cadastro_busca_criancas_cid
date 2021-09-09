@@ -84,14 +84,6 @@ public class DAO_Cid
          conectaBanco = new ConnectionFactory().getConnectionFactory();
 
 
-//                String sqlListaCid = "select nome_aluno, CIDA.cid, tipo_diag, descricao_diag, CIDB.cid, tipo_hd, \n" +
-//                                     " descricao_hd, turno_escolar, turno_aee, professor_aee, prof_regular, \n" +
-//                                     " ano_escolar_aluno  from tbl_aluno\n" +
-//                                     " join tbl_escola on id_escola = fk_professor_escola \n" +
-//                                     " join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid \n" +
-//                                     " join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid \n" +
-//                                     " join tbl_professor on id_professor = fk_professor_escola \n" +
-//                                     " where estatus like 'A' order by professor_aee;";
 
 String sqlListaCid = "select nome_aluno, CIDA.cid, tipo_diag, descricao_diag, CIDB.cid, tipo_hd, \n" +
                                      " descricao_hd, turno_escolar, turno_aee, professor_aee, \n" +
@@ -102,11 +94,7 @@ String sqlListaCid = "select nome_aluno, CIDA.cid, tipo_diag, descricao_diag, CI
                                      " join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid \n" +
                                      " join tbl_professor on id_professor = fk_professor_escola \n" +
                                      " where estatus like 'A' order by professor_aee;";
-         
-                
-                
-                
-                
+  
          try
             {
                 PreparedStatement stmt = conectaBanco.prepareStatement(sqlListaCid);
@@ -123,7 +111,8 @@ String sqlListaCid = "select nome_aluno, CIDA.cid, tipo_diag, descricao_diag, CI
             String nome_aluno,
             String cid,
             String descricao_diagnostico,
-            String professor_aee
+            String professor_aee,
+            String nome_escola
             
     )
         {
@@ -135,14 +124,15 @@ String sqlListaCid = "select nome_aluno, CIDA.cid, tipo_diag, descricao_diag, CI
                                     " descricao_hd, turno_escolar, turno_aee, professor_aee, \n" +
                                     " profregular, transporte, auxiliar, mobilidade, \n" +
                                     " ano_escolar_aluno  from tbl_aluno\n" +
-                                        " join tbl_escola on id_escola = fk_professor_escola \n" +
                                         " join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid \n" +
                                         " join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid \n" +
                                         " join tbl_professor on id_professor = fk_professor_escola\n" +
+                                        " join tbl_escola on id_escola = fk_professor\n" +
                                     " where CIDA.cid like '%"+cid+"%' \n" +                                    
                                     " OR nome_aluno like '%"+nome_aluno+"%'\n" +
                                     " OR descricao_diag like '%"+descricao_diagnostico+"%'\n" +
-                                    " OR professor_aee like '%"+professor_aee+"%'\n" +  
+                                    " OR professor_aee like '%"+professor_aee+"%'\n" + 
+                                    " OR nome_escola like '%"+nome_escola+"%'"+
                                     " AND estatus like 'A'; ";
             
 
