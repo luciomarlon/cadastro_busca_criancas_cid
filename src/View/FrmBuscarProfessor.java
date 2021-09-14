@@ -154,15 +154,7 @@ public class FrmBuscarProfessor extends javax.swing.JFrame {
          else
          {
              int linha = tbListarProfessores.getSelectedRow();
-//             professor_aee = (String) tbListarProfessores.getValueAt(linha, 0);
-//             escola_vinculada = (String) tbListarProfessores.getValueAt(linha, 1); 
-//             professor_regular = (String) tbListarProfessores.getValueAt(linha, 2);
-//             auxiliar_sala = (String) tbListarProfessores.getValueAt(linha, 3);
-//             turno_professor = (String) tbListarProfessores.getValueAt(linha, 4);
-//             datacadastro = (String)tbListarProfessores.getValueAt(linha, 5);
-//             estatusprofessor = (String)tbListarProfessores.getValueAt(linha, 6); 
-//             escola_sede = (String)tbListarProfessores.getValueAt(linha, 7); 
-//             id_professor = (String)tbListarProfessores.getValueAt(linha, 8);  
+ 
              professor_aee = (String) tbListarProfessores.getValueAt(linha, 0);
              qtd_alunos = (String) tbListarProfessores.getValueAt(linha, 1); 
              escola_vinculada = (String) tbListarProfessores.getValueAt(linha, 2); 
@@ -285,37 +277,7 @@ public class FrmBuscarProfessor extends javax.swing.JFrame {
         }        
     }
     
-//    public void PesquisarPorSetor()
-//    {
-//        
-//          String tipo_hd = txtPesquisaAlunos.getText();
-//       
-//         DAO_Alunos buscaralunos = new DAO_Alunos();
-//         ResultSet buscar = buscaralunos.PesquisaHD(tipo_hd);
-//            
-//        DefaultTableModel tabela = (DefaultTableModel) tbListarAlunos.getModel();
-//        tabela.setNumRows(0);
-//            try{
-//            while(buscar.next()){
-//                tabela.addRow(new Object []{
-//                    buscar.getString(1),
-//                    buscar.getString(2),
-//                    buscar.getString(3),
-//                    buscar.getString(4),
-//                    buscar.getString(5),
-//                    buscar.getString(6),
-//                    buscar.getString(7),
-//                    buscar.getString(8),
-//                    buscar.getString(9),
-//           
-//                    
-//                });
-//            }
-//        }catch(SQLException error){
-//            throw new RuntimeException("Houve um problema " + error.getMessage());
-//        }
-//    
-//    }
+
     
     public void  Limpar()
     {

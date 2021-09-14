@@ -275,7 +275,7 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         cbSuspeita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Medico", "NE", "Familiar", "Professor" }));
         getContentPane().add(cbSuspeita, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 120, 35));
 
-        cbLaudo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Sim", "Não" }));
+        cbLaudo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Sim", "Não", "AC" }));
         getContentPane().add(cbLaudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 110, 35));
 
         cbBeneficios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE" }));
@@ -291,7 +291,7 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         cbTipoDiag.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "MULTIPLO", "UNICO", "NE" }));
         getContentPane().add(cbTipoDiag, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 120, 35));
 
-        cbTipoHD.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "MULTIPLO", "UNICO", "NE" }));
+        cbTipoHD.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "MULTIPLO", "UNICO", "NE", "EM AVAL." }));
         getContentPane().add(cbTipoHD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, 120, 35));
 
         cbCidAluno_hd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE" }));
@@ -300,7 +300,7 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         cbTurnoEscolar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Manhã", "Inter", "Tarde", "NE" }));
         getContentPane().add(cbTurnoEscolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 660, 110, 35));
 
-        cbTurnoAEE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Manhã", "Inter", "Tarde", "NE" }));
+        cbTurnoAEE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Manhã", "Inter", "Tarde", "M/T", "NE" }));
         getContentPane().add(cbTurnoAEE, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 660, 120, 35));
 
         cbProfessor.setEditable(true);
@@ -404,7 +404,8 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         FrmAtualizarAlunos telaalunos = new FrmAtualizarAlunos();
-        telaalunos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);      
+//        telaalunos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        telaalunos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
     
@@ -693,6 +694,11 @@ public void atualizarAlunos()
             
                try
                {
+                   
+                    atualizaAlunos.alterarAlunos(alteraAlunos);                        
+                    JOptionPane.showMessageDialog(null,"Atualizado com sucesso");
+                    
+                    
                     txtCpfAluno.setText("");                
                     txtDatacadastro.setText("");                                      
                     txtAnoEscolar.setText("");
@@ -722,15 +728,11 @@ public void atualizarAlunos()
                     
                     String codigo = this.codigoAtualiza;
                     
-                    atualizaAlunos.alterarAlunos(alteraAlunos);                        
-                    JOptionPane.showMessageDialog(null,"Atualizado com sucesso");
-                  
-                      this.dispose();
-                    
-                    
 //                    FrmPesquisarAlunos Pesquisa = new FrmPesquisarAlunos();
-//                    Pesquisa.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //                    Pesquisa.setVisible(true);
+//                    Pesquisa.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    this.dispose();
+                    
                     
                }
                catch(HeadlessException erro)

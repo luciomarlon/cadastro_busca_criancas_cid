@@ -13,7 +13,7 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
 
     public FrmPesquisarAlunos() {
         initComponents();
-        ListarAlunos();     
+//        ListarAlunos();     
         PesquisarTotal();
         lbMudaDiagnostico.setText("TOTAL DE REGISTROS");
         txtMudaDiagnostico.setText("TOTAL DE REGISTROS");
@@ -217,17 +217,18 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        FrmPesquisarAlunos pesquisaralunos = new FrmPesquisarAlunos();
+//        FrmPesquisarAlunos pesquisaralunos = new FrmPesquisarAlunos();
+//        pesquisaralunos.setVisible(true);
 //        pesquisaralunos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        this.dispose();
         
         AlteracaoAlunos();
-//        Limpar();
+
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
 
-//            Limpar();
+
             txtPesquisaAlunos.setText("");
             txtTotal.setText(""); 
             txtTotalDiagnosticos.setText("");
@@ -254,20 +255,18 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
                  
+
                 if(txtPesquisaAlunos.getText().equals(""))
                 {
-                    Limpar();
-                    ListarAlunos();                    
-                    PesquisarTotal();  
+                    ListarAlunos();                     
                     lbMudaDiagnostico.setText("TOTAL DE REGISTROS");
-                    txtMudaDiagnostico.setText("TOTAL DE REGISTROS");
-                    
+                    txtMudaDiagnostico.setText("TOTAL DE REGISTROS");                    
                 }
                 else
                 {
                     PesquisarAlunos();
-                    PesquisarTotal();  
-
+                    PesquisarTotal();
+                    cbBuscarTipo.setSelectedItem("SELECIONE"); 
                 }
                
     }//GEN-LAST:event_btnBuscarActionPerformed
@@ -601,7 +600,6 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
         }    
         
     }
-    
     
     private void PesquisarTotalDiagUnico()
     {
@@ -1077,10 +1075,10 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
 //           "Turno Escolar","Turno AEE", "Estatus", "Observações","Benefícios",
 //           "Professor","id"}));
         
-//       DefaultTableModel model = (DefaultTableModel) tbListarAlunos.getModel ();       
-//       model.setRowCount (0);     
+       DefaultTableModel model = (DefaultTableModel) tbListarAlunos.getModel ();       
+       model.setRowCount (0);     
 //       
-//       txtPesquisaAlunos.setText("");
+       txtPesquisaAlunos.setText("");
      
        
     }

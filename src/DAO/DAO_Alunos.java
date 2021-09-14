@@ -122,25 +122,25 @@ public class DAO_Alunos
          } 
         }
         
-        public void excluirAlunos(int id_aluno)
-        {
-            String sql_excluir = "delete from tbl_aluno where id_aluno = ?";
-            
-            try
-            {
-                PreparedStatement stmt = conectaBanco.prepareStatement(sql_excluir);
-                stmt.setInt(1, id_aluno);
-                stmt.execute();
-                stmt.close();
-            }
-            catch(SQLException erro)
-            {
-                JOptionPane.showMessageDialog(null, "Erro ao excluir "
-                        + "tabela ALUNOS." + erro.getMessage());            
-                
-            }   
-            
-        }
+//        public void excluirAlunos(int id_aluno)
+//        {
+//            String sql_excluir = "delete from tbl_aluno where id_aluno = ?";
+//            
+//            try
+//            {
+//                PreparedStatement stmt = conectaBanco.prepareStatement(sql_excluir);
+//                stmt.setInt(1, id_aluno);
+//                stmt.execute();
+//                stmt.close();
+//            }
+//            catch(SQLException erro)
+//            {
+//                JOptionPane.showMessageDialog(null, "Erro ao excluir "
+//                        + "tabela ALUNOS." + erro.getMessage());            
+//                
+//            }   
+//            
+//        }
         
         public ResultSet listarAcompanhamentoAlunos()
         {
@@ -177,9 +177,10 @@ public class DAO_Alunos
                     + " join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid "
                     + " join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid "	                   
                     + " join tbl_beneficios on id_beneficios = fk_beneficios "                       
-            + " where (nome_aluno like '%%' OR professor_aee like '%%' OR "
-            + " tipo_diag LIKE '%%' OR CIDA.cid like '%%' OR  CIDB.cid like '%%' OR"          
-            + " descricao_diag like '%%') AND estatus LIKE 'A' order by professor_aee;";
+//            + " where (nome_aluno like '%%' OR professor_aee like '%%' OR "
+//            + " tipo_diag LIKE '%%' OR CIDA.cid like '%%' OR  CIDB.cid like '%%' OR"          
+//            + " descricao_diag like '%%') AND estatus LIKE 'A' order by professor_aee;";
+                    + " where nome_aluno like '%%' AND estatus LIKE 'A' order by professor_aee;";
 
             
             try
@@ -349,7 +350,8 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
             throw new RuntimeException("Houve um problema " + error.getMessage());
         }                
                         
-      }
+      }        
+        
         
         public ResultSet TotalAlunosDiagUnico(String descricao_diagnostico, String mobilidade)
         {

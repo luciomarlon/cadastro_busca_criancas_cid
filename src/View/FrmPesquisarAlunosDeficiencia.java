@@ -406,6 +406,8 @@ public class FrmPesquisarAlunosDeficiencia extends javax.swing.JFrame {
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
 
+            txtPesquisarCidDiagosticos.setText("");           
+            cbBuscarTipo.setSelectedItem("SELECIONE");
             Limpar();
          
 //            cbBuscarTipo.setSelectedItem("SELECIONE");
@@ -1005,12 +1007,12 @@ public class FrmPesquisarAlunosDeficiencia extends javax.swing.JFrame {
     public void  Limpar()
     {
 
-        
-       DefaultTableModel model = (DefaultTableModel) tbListarCid.getModel ();
-            model.setRowCount (0);
-         
-//        cbBuscarTipo.setSelectedItem("SELECIONE");
-        txtPesquisarCidDiagosticos.setText("");
+//        
+//       DefaultTableModel model = (DefaultTableModel) tbListarCid.getModel ();
+//            model.setRowCount (0);
+//         
+////        cbBuscarTipo.setSelectedItem("SELECIONE");
+//        txtPesquisarCidDiagosticos.setText("");
     }
 
 

@@ -356,9 +356,10 @@ public class FrmAtualizaProfessor extends javax.swing.JFrame {
                    
                     atualizaprofessor.alterarProfessores(alteraProfessores);                        
                     JOptionPane.showMessageDialog(null,"Atualizado com sucesso");
-                    FrmPesquisarProfessor Pesquisa = new FrmPesquisarProfessor();
                     
-                    Pesquisa.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    FrmPesquisarProfessor Pesquisa = new FrmPesquisarProfessor();                    
+//                    Pesquisa.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    Pesquisa.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
                     this.dispose();
                     Pesquisa.setVisible(true);  
                }
@@ -376,7 +377,7 @@ public class FrmAtualizaProfessor extends javax.swing.JFrame {
         try
         {
             DAO_Escolas objescolas = new DAO_Escolas();
-            ResultSet resultadoSetado = objescolas.listarEscolas();
+            ResultSet resultadoSetado = objescolas.listarEscolasCombobox();
             
             while (resultadoSetado.next())
             {

@@ -253,7 +253,7 @@ public class FrmCadastroAlunos extends javax.swing.JFrame {
         });
         getContentPane().add(cbSuspeita, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, 120, 35));
 
-        cbLaudo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Sim", "Não", " " }));
+        cbLaudo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Sim", "Não", "AC" }));
         cbLaudo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbLaudoActionPerformed(evt);
@@ -284,14 +284,14 @@ public class FrmCadastroAlunos extends javax.swing.JFrame {
         });
         getContentPane().add(cbTipoDiag, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 120, 35));
 
-        cbTipoHD.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "MULTIPLO", "UNICO", "NE" }));
+        cbTipoHD.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "MULTIPLO", "UNICO", "NE", "EM AVAL." }));
         getContentPane().add(cbTipoHD, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 120, 35));
 
         cbCidAluno_hd.setEditable(true);
         cbCidAluno_hd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE" }));
         getContentPane().add(cbCidAluno_hd, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 550, 270, 35));
 
-        cbTurnoAEE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Manhã", "Inter", "Tarde", "NE" }));
+        cbTurnoAEE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Manhã", "Inter", "Tarde", "M/T", "NE" }));
         getContentPane().add(cbTurnoAEE, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 710, 120, 35));
 
         txtCpfAluno.setBackground(new java.awt.Color(204, 255, 255));

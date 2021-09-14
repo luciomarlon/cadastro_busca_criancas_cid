@@ -322,7 +322,7 @@ public class FrmCadastroProfessor extends javax.swing.JFrame {
         try
         {
             DAO_Escolas objescolas = new DAO_Escolas();
-            ResultSet resultadoSetado = objescolas.listarEscolas();
+            ResultSet resultadoSetado = objescolas.listarEscolasCombobox();
             
             while (resultadoSetado.next())
             {

@@ -35,7 +35,7 @@ public class TelasBusca extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnAlunosDeficiencia = new javax.swing.JButton();
-        btnBuscar3 = new javax.swing.JButton();
+        btnEstatisticas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -81,12 +81,12 @@ public class TelasBusca extends javax.swing.JFrame {
             }
         });
 
-        btnBuscar3.setBackground(new java.awt.Color(204, 255, 255));
-        btnBuscar3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnBuscar3.setText("Buscar alunos do setor");
-        btnBuscar3.addActionListener(new java.awt.event.ActionListener() {
+        btnEstatisticas.setBackground(new java.awt.Color(204, 255, 255));
+        btnEstatisticas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEstatisticas.setText("Estatisticas por Período");
+        btnEstatisticas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscar3ActionPerformed(evt);
+                btnEstatisticasActionPerformed(evt);
             }
         });
 
@@ -103,7 +103,7 @@ public class TelasBusca extends javax.swing.JFrame {
                             .addComponent(btnProfessor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnEscolas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnAlunosDeficiencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnBuscar3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnEstatisticas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(367, 367, 367)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(48, 48, 48))
@@ -124,12 +124,12 @@ public class TelasBusca extends javax.swing.JFrame {
                         .addGap(112, 112, 112))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnProfessor)
-                        .addGap(27, 27, 27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnEscolas)
-                        .addGap(30, 30, 30)
+                        .addGap(18, 18, 18)
                         .addComponent(btnAlunosDeficiencia)
-                        .addGap(29, 29, 29)
-                        .addComponent(btnBuscar3)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEstatisticas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(40, Short.MAX_VALUE))
@@ -164,9 +164,11 @@ public class TelasBusca extends javax.swing.JFrame {
         alunodeficiencia.setVisible(true);        
     }//GEN-LAST:event_btnAlunosDeficienciaActionPerformed
 
-    private void btnBuscar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscar3ActionPerformed
+    private void btnEstatisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstatisticasActionPerformed
+        FrmPesquisarEstatisticasPeriodo buscarestatisticas = new FrmPesquisarEstatisticasPeriodo();
+        buscarestatisticas.setLocationRelativeTo(null);
+        buscarestatisticas.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_btnEstatisticasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,8 +210,8 @@ public class TelasBusca extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlunosDeficiencia;
-    private javax.swing.JButton btnBuscar3;
     private javax.swing.JButton btnEscolas;
+    private javax.swing.JButton btnEstatisticas;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnProfessor;
     private javax.swing.JLabel jLabel2;

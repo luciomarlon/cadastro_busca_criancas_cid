@@ -1,4 +1,3 @@
-
 package View;
 
 import DAO.DAO_Alunos;
@@ -9,13 +8,12 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class FrmPesquisarEscolas extends javax.swing.JFrame {
+public class FrmPesquisarEstatisticasPeriodo extends javax.swing.JFrame {
 
-    public FrmPesquisarEscolas() {
+    public FrmPesquisarEstatisticasPeriodo() {
         initComponents();
-        ListarEscolas(); 
+        ListarEscolas();
     }
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -29,6 +27,7 @@ public class FrmPesquisarEscolas extends javax.swing.JFrame {
         btnHome = new javax.swing.JButton();
         txtPesquisaAlunos = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
+        cbBuscarPeriodo = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
@@ -85,7 +84,7 @@ public class FrmPesquisarEscolas extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setText("Listar/Pesquisar - ESCOLAS");
+        jLabel1.setText("ESTATÍSTICAS POR PERÍODO");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, -1, -1));
 
         tbListarEscolas.setModel(new javax.swing.table.DefaultTableModel(
@@ -137,6 +136,15 @@ public class FrmPesquisarEscolas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 120, 40));
+
+        cbBuscarPeriodo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbBuscarPeriodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Escolas/Setor/Professor" }));
+        cbBuscarPeriodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbBuscarPeriodoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbBuscarPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 110, 260, 40));
 
         jMenu1.setText("Cadastros");
 
@@ -395,25 +403,23 @@ public class FrmPesquisarEscolas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        Limpar();            
+        txtPesquisaAlunos.setText("");
+        cbBuscarPeriodo.setSelectedItem("SELECIONE");
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        FrmPesquisarEscolas escolas = new FrmPesquisarEscolas();
-        escolas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);              
+        FrmPesquisarEstatisticasPeriodo escolas = new FrmPesquisarEstatisticasPeriodo();
+        escolas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-            if(txtPesquisaAlunos.getText().equals(""))
-                {
-                    ListarEscolas();
-                    
-                }
-                else
-                {
-                    PesquisarEscolas();
-                }              
+
+        if (txtPesquisaAlunos.getText().equals("")) {
+            ListarEscolas();
+        } else {
+            PesquisarProfessorEscolasTurnos();
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
@@ -431,7 +437,7 @@ public class FrmPesquisarEscolas extends javax.swing.JFrame {
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         //        FrmCadastroProfessor telaCadastroProfessor = new FrmCadastroProfessor(this, true);
         //        telaCadastroProfessor.setVisible(true);
-        FrmCadastroProfessor  cadastroProfessor = new FrmCadastroProfessor();
+        FrmCadastroProfessor cadastroProfessor = new FrmCadastroProfessor();
         cadastroProfessor.setLocationRelativeTo(null);
         cadastroProfessor.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
@@ -480,6 +486,25 @@ public class FrmPesquisarEscolas extends javax.swing.JFrame {
         atualizaProfessor.setVisible(true);
     }//GEN-LAST:event_MenuProfessorActionPerformed
 
+    private void cbBuscarPeriodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbBuscarPeriodoActionPerformed
+
+        if (cbBuscarPeriodo.getSelectedItem().equals("Escolas/Setor/Professor")) {
+            ListarPesquisaPorProfessor();
+            cbBuscarPeriodo.setSelectedItem("SELECIONE");
+            tbListarEscolas.editCellAt(0, 0);
+            txtPesquisaAlunos.setText("");
+
+        } else if (cbBuscarPeriodo.getSelectedItem().equals("SELECIONE")) {
+            ListarEscolas();
+            tbListarEscolas.editCellAt(0, 0);
+        } else if (txtPesquisaAlunos.getText().equals("Escolas/Setor/Professor")) {
+            cbBuscarPeriodo.setSelectedItem("SELECIONE");
+            PesquisarProfessorEscolasTurnos();
+        }
+
+
+    }//GEN-LAST:event_cbBuscarPeriodoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -497,14 +522,70 @@ public class FrmPesquisarEscolas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmPesquisarEscolas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPesquisarEstatisticasPeriodo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmPesquisarEscolas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPesquisarEstatisticasPeriodo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmPesquisarEscolas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPesquisarEstatisticasPeriodo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmPesquisarEscolas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPesquisarEstatisticasPeriodo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -517,7 +598,7 @@ public class FrmPesquisarEscolas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmPesquisarEscolas().setVisible(true);
+                new FrmPesquisarEstatisticasPeriodo().setVisible(true);
             }
         });
     }
@@ -527,6 +608,7 @@ public class FrmPesquisarEscolas extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JComboBox<String> cbBuscarPeriodo;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
@@ -581,89 +663,120 @@ public class FrmPesquisarEscolas extends javax.swing.JFrame {
     private javax.swing.JTable tbListarEscolas;
     private javax.swing.JTextField txtPesquisaAlunos;
     // End of variables declaration//GEN-END:variables
-   private void ListarEscolas()
-    {
-          tbListarEscolas.setModel(new DefaultTableModel(null, 
-             new String[]{
-           "Ano escolar","Nome da escola", "Setor", "id"}));
-            tbListarEscolas.getColumnModel().getColumn(3).setMinWidth(0);
-            tbListarEscolas.getColumnModel().getColumn(3).setMaxWidth(0);
-            
-            tbListarEscolas.getTableHeader().setReorderingAllowed (false);
-        
-        
-        DefaultTableModel tabelaAlunos = 
-                (DefaultTableModel)tbListarEscolas.getModel();
-        
-        DAO.DAO_Escolas listaescolas = new DAO_Escolas();
-        ResultSet retornaescolas = listaescolas.listarEscolas();
-        
-        try
-        {
-            while(retornaescolas.next())
-            {
+   private void ListarEscolas() {
+
+        tbListarEscolas.setModel(new DefaultTableModel(null,
+                new String[]{
+                    "Nome Escola", "setor", "Total", "Manhã", "Tarde", "M/T", "NE"}));
+
+//            tbListarEscolas.getColumnModel().getColumn(2).setMinWidth(0);
+//            tbListarEscolas.getColumnModel().getColumn(2).setMaxWidth(0);
+//            
+        tbListarEscolas.getTableHeader().setReorderingAllowed(false);
+
+        DefaultTableModel tabelaAlunos
+                = (DefaultTableModel) tbListarEscolas.getModel();
+
+        DAO.DAO_Escolas listaestatisticas = new DAO_Escolas();
+        ResultSet retornaescolas = listaestatisticas.listarEstatisticasPeriodo();
+
+        try {
+            while (retornaescolas.next()) {
                 tabelaAlunos.addRow(new Object[]{
                     retornaescolas.getString(1),
                     retornaescolas.getString(2),
                     retornaescolas.getString(3),
-                    retornaescolas.getString(4)
-                  
-               
+                    retornaescolas.getString(4),
+                    retornaescolas.getString(5),
+                    retornaescolas.getString(6),
+                    retornaescolas.getString(7)
+
                 });
             }
-        
+
+        } catch (SQLException erro) {
+            throw new RuntimeException("Erro ao listar "
+                    + "tabela ESCOLAS." + erro);
         }
-        catch(SQLException erro)
-        {
-                throw new RuntimeException("Erro ao listar "
-                        + "tabela ESCOLAS." + erro);                          
-        }     
-        
+
     }
-    
-    private void PesquisarEscolas()
-    {
-        
-         tbListarEscolas.setModel(new DefaultTableModel(null, 
-             new String[]{
-           "Ano escolar","Nome da escola", "Setor", "id"}));
-            tbListarEscolas.getColumnModel().getColumn(3).setMinWidth(0);
-            tbListarEscolas.getColumnModel().getColumn(3).setMaxWidth(0);
-        
-        String nome_escola  = txtPesquisaAlunos.getText().toUpperCase(); 
-        String setor   = txtPesquisaAlunos.getText().toUpperCase();
-        
-        
+
+    private void PesquisarProfessorEscolasTurnos() {
+
+        String nome_escola = txtPesquisaAlunos.getText().toUpperCase();        
+        String professor_aee = txtPesquisaAlunos.getText().toUpperCase();
+
+        tbListarEscolas.setModel(new DefaultTableModel(null, new String[]{
+
+            "Nome Escola", "setor", "Professor", "Total", "Total Manha", "Total Tarde", "M/T", "NE"}));
+
+//            tbListarEscolas.getColumnModel().getColumn().setMinWidth(0);
+//            tbListarEscolas.getColumnModel().getColumn().setMaxWidth(0);
         DefaultTableModel tabela = (DefaultTableModel) tbListarEscolas.getModel();
         tabela.setNumRows(0);
-        
+
         DAO_Escolas buscaescolas = new DAO_Escolas();
-        ResultSet buscar = buscaescolas.PesquisarEscolas(nome_escola, setor);
-        
-        try{
-            while(buscar.next()){
-                tabela.addRow(new Object []{
+        ResultSet buscar = buscaescolas.ProfessorEscolasTurnos(
+                nome_escola,
+                professor_aee
+        );
+
+        try {
+            while (buscar.next()) {
+                tabela.addRow(new Object[]{
                     buscar.getString(1),
                     buscar.getString(2),
                     buscar.getString(3),
                     buscar.getString(4)
-                   
+                        ,
+                    buscar.getString(5)
+                        ,
+                    buscar.getString(6),
+                    buscar.getString(7),
+                    buscar.getString(8)
+
                 });
-                
+
             }
-        }catch(SQLException error){
+        } catch (SQLException error) {
             throw new RuntimeException("Houve um problema " + error.getMessage());
-        }        
-    }
-    
-        
-    public void  Limpar()
-    {
-    
-       DefaultTableModel model = (DefaultTableModel) tbListarEscolas.getModel ();
-            model.setRowCount (0);         
-
+        }
     }
 
+    private void ListarPesquisaPorProfessor() {
+
+        tbListarEscolas.setModel(new DefaultTableModel(null, new String[]{
+            "Nome Escola", "setor", "Professor", "Turno", "Total Turno"}));
+
+//            tbListarEscolas.getColumnModel().getColumn().setMinWidth(0);
+//            tbListarEscolas.getColumnModel().getColumn().setMaxWidth(0);
+        DefaultTableModel tabela = (DefaultTableModel) tbListarEscolas.getModel();
+        tabela.setNumRows(0);
+
+        DAO_Escolas buscaescolas = new DAO_Escolas();
+        ResultSet buscar = buscaescolas.ProfessorEscolasTurnos();
+
+        try {
+            while (buscar.next()) {
+                tabela.addRow(new Object[]{
+                    buscar.getString(1),
+                    buscar.getString(2),
+                    buscar.getString(3),
+                    buscar.getString(4),
+                    buscar.getString(5)
+                });
+
+            }
+        } catch (SQLException error) {
+            throw new RuntimeException("Houve um problema " + error.getMessage());
+        }
+    }
+
+    public void Limpar() {
+
+        DefaultTableModel model = (DefaultTableModel) tbListarEscolas.getModel();
+        model.setRowCount(0);
+
+    }
 
 }

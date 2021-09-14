@@ -33,9 +33,7 @@ public class TelasProfessor extends javax.swing.JFrame {
         btnAtualizarAlunos = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        btnBuscar2 = new javax.swing.JButton();
         btnBuscar3 = new javax.swing.JButton();
-        btnBuscar4 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -70,30 +68,12 @@ public class TelasProfessor extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setText("PROFESSOR");
 
-        btnBuscar2.setBackground(new java.awt.Color(204, 255, 255));
-        btnBuscar2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnBuscar2.setText("Buscar Professores por setor");
-        btnBuscar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscar2ActionPerformed(evt);
-            }
-        });
-
         btnBuscar3.setBackground(new java.awt.Color(204, 255, 255));
         btnBuscar3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnBuscar3.setText("Buscar alunos do setor");
+        btnBuscar3.setText("Buscar qtd alunos do setor");
         btnBuscar3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscar3ActionPerformed(evt);
-            }
-        });
-
-        btnBuscar4.setBackground(new java.awt.Color(204, 255, 255));
-        btnBuscar4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnBuscar4.setText("Buscar professores por escola");
-        btnBuscar4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscar4ActionPerformed(evt);
             }
         });
 
@@ -111,9 +91,7 @@ public class TelasProfessor extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnBuscar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnBuscar3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBuscar4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAtualizarAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -134,10 +112,6 @@ public class TelasProfessor extends javax.swing.JFrame {
                         .addComponent(btnCadastrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnAtualizarAlunos)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBuscar2)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBuscar4)
                         .addGap(18, 18, 18)
                         .addComponent(btnBuscar3)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -171,14 +145,6 @@ public class TelasProfessor extends javax.swing.JFrame {
 //        telaprofessor.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnHomeActionPerformed
-
-    private void btnBuscar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscar2ActionPerformed
-
-    private void btnBuscar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscar4ActionPerformed
 
     private void btnBuscar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar3ActionPerformed
         // TODO add your handling code here:
@@ -222,9 +188,7 @@ public class TelasProfessor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizarAlunos;
-    private javax.swing.JButton btnBuscar2;
     private javax.swing.JButton btnBuscar3;
-    private javax.swing.JButton btnBuscar4;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnHome;
     private javax.swing.JLabel jLabel2;
