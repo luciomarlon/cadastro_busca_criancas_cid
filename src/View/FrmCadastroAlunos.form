@@ -427,13 +427,12 @@
     <Component class="javax.swing.JComboBox" name="cbSuspeita">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="6">
+          <StringArray count="5">
             <StringItem index="0" value="SELECIONE"/>
             <StringItem index="1" value="Medico"/>
             <StringItem index="2" value="NE"/>
             <StringItem index="3" value="Familiar"/>
             <StringItem index="4" value="Professor"/>
-            <StringItem index="5" value=" "/>
           </StringArray>
         </Property>
       </Properties>
@@ -525,7 +524,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="230" y="400" width="270" height="35"/>
+          <AbsoluteConstraints x="190" y="400" width="400" height="35"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -729,7 +728,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="230" y="370" width="-1" height="26"/>
+          <AbsoluteConstraints x="190" y="370" width="-1" height="26"/>
         </Constraint>
       </Constraints>
     </Component>

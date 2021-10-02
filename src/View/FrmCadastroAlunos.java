@@ -12,13 +12,9 @@ import DAO.DAO_ProfessoresAEE;
 import DAO.LimitarDigitos;
 import Model.AlunosAEE;
 import java.awt.HeadlessException;
-import java.awt.event.ItemListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
@@ -245,7 +241,7 @@ public class FrmCadastroAlunos extends javax.swing.JFrame {
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Feminino", "Masculino" }));
         getContentPane().add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 110, 35));
 
-        cbSuspeita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Medico", "NE", "Familiar", "Professor", " " }));
+        cbSuspeita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Medico", "NE", "Familiar", "Professor" }));
         cbSuspeita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbSuspeitaActionPerformed(evt);
@@ -274,7 +270,7 @@ public class FrmCadastroAlunos extends javax.swing.JFrame {
                 cbCidDiagAlunoActionPerformed(evt);
             }
         });
-        getContentPane().add(cbCidDiagAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 270, 35));
+        getContentPane().add(cbCidDiagAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, 400, 35));
 
         cbTipoDiag.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "MULTIPLO", "UNICO", "NE" }));
         cbTipoDiag.addActionListener(new java.awt.event.ActionListener() {
@@ -339,7 +335,7 @@ public class FrmCadastroAlunos extends javax.swing.JFrame {
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel25.setText("CID - Diagnóstico");
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, -1, 26));
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, -1, 26));
 
         cbTurnoEscolar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "Manhã", "Inter", "Tarde", "NE" }));
         cbTurnoEscolar.addActionListener(new java.awt.event.ActionListener() {
@@ -521,11 +517,7 @@ public class FrmCadastroAlunos extends javax.swing.JFrame {
           String dataMySQL = ano+"-"+mes+"-"+dia;
           String dataCadastro = anoCadastro+"-"+mesCadastro+"-"+diaCadastro;
           
-//        if (txtDatacadastro.getText().isEmpty())
-//        {            
-//            JOptionPane.showMessageDialog(null, "Campo DATA DO CADASTRO não "
-//                    + " pode ficar vazio");
-//        }
+
         if (dataCadastro.isEmpty())
         {            
             JOptionPane.showMessageDialog(null, "Campo DATA DO CADASTRO não "
@@ -639,7 +631,6 @@ public class FrmCadastroAlunos extends javax.swing.JFrame {
             AlunosAEE objalunos = new AlunosAEE(
             
                     txtCpfAluno.getText(),                    
-//                    txtDatacadastro.getText(),
                     dataCadastro,
                     txtAnoEscolar.getText().toUpperCase(),                    
                     txtNomeAluno.getText().toUpperCase(), 

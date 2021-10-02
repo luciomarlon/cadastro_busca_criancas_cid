@@ -10,27 +10,16 @@ import Model.AlunosAEE;
 import java.awt.HeadlessException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
-import java.util.Date;
 
 
-public class FrmAtualizarAlunos extends javax.swing.JFrame {
-        
-     
-     DAO_Alunos listar = new DAO_Alunos();   
-     
-    private int index;    
-    
-  
-    
-    
-    
+public class FrmVisualizarAlunos extends javax.swing.JFrame {
+
    
-    public FrmAtualizarAlunos() {
+    public FrmVisualizarAlunos() {
         initComponents();
  
         AutoCompleteDecorator.decorate(cbBeneficios);
@@ -120,7 +109,6 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
-        btnAtualizarAlunos = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -180,6 +168,7 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         jLabel4.setText("Data de Nascimento");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 80, -1, -1));
 
+        txtResponsavel.setEditable(false);
         txtResponsavel.setBackground(new java.awt.Color(204, 255, 255));
         txtResponsavel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(txtResponsavel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 500, 35));
@@ -196,6 +185,7 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         jLabel7.setText("Laudo");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 63, 26));
 
+        txtDescDiagnostico.setEditable(false);
         txtDescDiagnostico.setBackground(new java.awt.Color(204, 255, 255));
         txtDescDiagnostico.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(txtDescDiagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 480, 35));
@@ -232,17 +222,7 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 830, 200, 60));
-
-        btnAtualizarAlunos.setBackground(new java.awt.Color(204, 255, 255));
-        btnAtualizarAlunos.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        btnAtualizarAlunos.setText("Atualizar");
-        btnAtualizarAlunos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAtualizarAlunosActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnAtualizarAlunos, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 830, 200, 60));
+        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 840, 200, 60));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel16.setText("Estatus do aluno: Ativo - Desativado");
@@ -264,6 +244,7 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         jLabel21.setText("Data Atualização");
         getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
+        txtTelefone.setEditable(false);
         txtTelefone.setBackground(new java.awt.Color(204, 255, 255));
         txtTelefone.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 190, 35));
@@ -272,10 +253,12 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         jLabel22.setText("Ano escolar");
         getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 630, -1, -1));
 
+        txtAnoEscolar.setEditable(false);
         txtAnoEscolar.setBackground(new java.awt.Color(204, 255, 255));
         txtAnoEscolar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(txtAnoEscolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 660, 170, 35));
 
+        txtDescricaoHD.setEditable(false);
         txtDescricaoHD.setBackground(new java.awt.Color(204, 255, 255));
         txtDescricaoHD.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(txtDescricaoHD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, 480, 35));
@@ -297,7 +280,7 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
 
         cbCidDiagAluno.setEditable(true);
         cbCidDiagAluno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE" }));
-        getContentPane().add(cbCidDiagAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 410, 35));
+        getContentPane().add(cbCidDiagAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 270, 35));
 
         cbTipoDiag.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "MULTIPLO", "UNICO", "NE" }));
         getContentPane().add(cbTipoDiag, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 120, 35));
@@ -324,13 +307,14 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel23.setText("CID - Diagnóstico");
-        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, -1, 26));
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, -1, 26));
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel24.setText("Tipo Diagnóstico");
         getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, 26));
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, -1, -1));
 
+        txtCpfAluno.setEditable(false);
         txtCpfAluno.setBackground(new java.awt.Color(204, 255, 255));
         getContentPane().add(txtCpfAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 220, 35));
 
@@ -342,12 +326,14 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         jLabel25.setText("Observações/Acompanhamentos");
         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, -1, 26));
 
+        txtObservacoes.setEditable(false);
         txtObservacoes.setColumns(20);
         txtObservacoes.setRows(5);
         jScrollPane1.setViewportView(txtObservacoes);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, 480, 260));
 
+        txtNomeAluno.setEditable(false);
         txtNomeAluno.setBackground(new java.awt.Color(204, 255, 255));
         txtNomeAluno.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(txtNomeAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 571, 35));
@@ -370,6 +356,7 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         jLabel28.setText("Recurso Mobilidade");
         getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 720, 190, 26));
 
+        txtMobilidade.setEditable(false);
         txtMobilidade.setBackground(new java.awt.Color(204, 255, 255));
         txtMobilidade.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(txtMobilidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 760, 260, 35));
@@ -378,10 +365,12 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         jLabel29.setText("Professor Regular");
         getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 720, 170, 30));
 
+        txtProfessorregular.setEditable(false);
         txtProfessorregular.setBackground(new java.awt.Color(204, 255, 255));
         txtProfessorregular.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(txtProfessorregular, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 760, 170, 35));
 
+        txtDataNasc.setEditable(false);
         txtDataNasc.setBackground(new java.awt.Color(204, 255, 255));
         try {
             txtDataNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -390,6 +379,7 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         }
         getContentPane().add(txtDataNasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 110, 160, 35));
 
+        txtDatacadastro.setEditable(false);
         txtDatacadastro.setBackground(new java.awt.Color(204, 255, 255));
         try {
             txtDatacadastro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -402,19 +392,8 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAtualizarAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarAlunosActionPerformed
- 
-        atualizarAlunos();        
-        ComboHipotese();
-        ComboRestauraCidDiagnostico();        
-        ComboBeneficios();
-        ComboRestauraProfessor();
-        AtualizarListagem();
-
-    }//GEN-LAST:event_btnAtualizarAlunosActionPerformed
-
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        FrmAtualizarAlunos telaalunos = new FrmAtualizarAlunos();
+        FrmVisualizarAlunos telaalunos = new FrmVisualizarAlunos();
 //        telaalunos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         telaalunos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
         this.dispose();
@@ -435,13 +414,12 @@ public class FrmAtualizarAlunos extends javax.swing.JFrame {
     public static void main(String args[]) {
    
         java.awt.EventQueue.invokeLater(() -> {
-            new FrmAtualizarAlunos().setVisible(true);               
+            new FrmVisualizarAlunos().setVisible(true);               
             
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAtualizarAlunos;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JComboBox<String> cbAuxiliar;
     private javax.swing.JComboBox<String> cbBeneficios;
@@ -528,19 +506,14 @@ public void atualizarAlunos()
          
           String dataMySQL = ano+"-"+mes+"-"+dia;
           String dataCadastro = anoCadastro+"-"+mesCadastro+"-"+diaCadastro;
-          
-        
+
+      
+
         if (dataCadastro.isEmpty())
         {            
             JOptionPane.showMessageDialog(null, "Campo DATA DO CADASTRO não "
                     + " pode ficar vazio");
         } 
-
-//        if (txtDatacadastro.getText().isEmpty())
-//        {            
-//            JOptionPane.showMessageDialog(null, "Campo DATA DO CADASTRO não "
-//                    + " pode ficar vazio");
-//        } 
         
         else if (cbSexo.getSelectedItem().equals("SELECIONE"))   
         {
@@ -553,12 +526,7 @@ public void atualizarAlunos()
             JOptionPane.showMessageDialog(null, "Campo DATA DE NASCIMENTO "
                     + "não pode ficar vazia");
         } 
-        
-//        else if (txtDataNasc.getText().isEmpty())
-//        {
-//            JOptionPane.showMessageDialog(null, "Campo DATA DE NASCIMENTO "
-//                    + "não pode ficar vazia");
-//        } 
+
         
         else if (txtNomeAluno.getText().isEmpty())
         {
@@ -566,11 +534,6 @@ public void atualizarAlunos()
                     + "não pode ficar vazio");
         }  
                 
-//        else if (txtResponsavel.getText().isEmpty())
-//        {
-//            JOptionPane.showMessageDialog(null, "campo RESPONSÁVEL não pode ficar "
-//                    + "vazio");
-//        }
 
         else if (cbSuspeita.getSelectedItem().equals("SELECIONE"))   
         {
@@ -672,12 +635,10 @@ public void atualizarAlunos()
                     
                     txtCpfAluno.getText(),                    
                     dataCadastro,
-//                    txtDatacadastro.getText(),                                       
                     txtAnoEscolar.getText().toUpperCase(),
                     txtNomeAluno.getText().toUpperCase(), 
                     cbSexo.getSelectedItem().toString(),
                     dataMySQL,
-//                    txtDataNasc.getText(),
                     txtResponsavel.getText().toUpperCase(),
                     txtTelefone.getText().toUpperCase(),
                     cbSuspeita.getSelectedItem().toString(), 
@@ -937,11 +898,5 @@ ArrayList<Integer> id_beneficio = new ArrayList<>();
        return beneficios;      
     
         }  
-       
-//       public void Paginar(){
-//           
-//            DAO_Alunos listar = new DAO_Alunos();   
-//            listar.listarAlunos();
-//       }
-//    
+    
 }

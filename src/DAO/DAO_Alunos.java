@@ -120,27 +120,8 @@ public class DAO_Alunos
          {
               throw new RuntimeException("Problema na conexão." + erro.getMessage());
          } 
-        }
-        
-//        public void excluirAlunos(int id_aluno)
-//        {
-//            String sql_excluir = "delete from tbl_aluno where id_aluno = ?";
-//            
-//            try
-//            {
-//                PreparedStatement stmt = conectaBanco.prepareStatement(sql_excluir);
-//                stmt.setInt(1, id_aluno);
-//                stmt.execute();
-//                stmt.close();
-//            }
-//            catch(SQLException erro)
-//            {
-//                JOptionPane.showMessageDialog(null, "Erro ao excluir "
-//                        + "tabela ALUNOS." + erro.getMessage());            
-//                
-//            }   
-//            
-//        }
+        }       
+
         
         public ResultSet listarAcompanhamentoAlunos()
         {
@@ -177,9 +158,6 @@ public class DAO_Alunos
                     + " join tbl_cid as CIDA on tbl_aluno.fk_cid_aluno = CIDA.id_cid "
                     + " join tbl_cid as CIDB on tbl_aluno.fk_cid_aluno_hd = CIDB.id_cid "	                   
                     + " join tbl_beneficios on id_beneficios = fk_beneficios "                       
-//            + " where (nome_aluno like '%%' OR professor_aee like '%%' OR "
-//            + " tipo_diag LIKE '%%' OR CIDA.cid like '%%' OR  CIDB.cid like '%%' OR"          
-//            + " descricao_diag like '%%') AND estatus LIKE 'A' order by professor_aee;";
                     + " where nome_aluno like '%%' AND estatus LIKE 'A' order by professor_aee;";
 
             
@@ -233,7 +211,7 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
                     + " descricao_hd like '%"+descricao_hd+"%' OR "  
                     + " professor_aee like '%"+professor_aee+"%'OR "
                     + " mobilidade like '%"+mobilidade+"%') "
-                    + " AND estatus LIKE 'A' order by professor_aee";
+                    + " AND estatus LIKE 'A' order by nome_aluno";
             
             ResultSet resultadoBusca;
             try
@@ -565,8 +543,8 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
 
 
             
-        String sql_pesquisar = "select cpf, data_cadastro, professor_aee, nome_aluno, "
-                           + " data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
+        String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" )data_cadastro, professor_aee, nome_aluno, "
+                           + " date_format(data_nasc, \"%d/%m/%Y\" )data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
                            + " tipo_diag, CIDA.cid, descricao_diag, tipo_hd, CIDB.cid,  "
                            + " descricao_hd, ano_escolar_aluno, turno_escolar, turno_aee, profregular, "
                            + " observacoes, transporte, auxiliar, mobilidade, telefone, "
@@ -603,8 +581,8 @@ String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) da
 
 
             
-        String sql_pesquisar = "select cpf, data_cadastro, professor_aee, nome_aluno, "
-                           + " data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
+        String sql_pesquisar = "select cpf, date_format(data_cadastro, \"%d/%m/%Y\" ) data_cadastro, professor_aee, nome_aluno, "
+                           + "date_format(data_nasc, \"%d/%m/%Y\" ) data_nasc, sexo, laudo, suspeita,  nome_responsavel,"
                            + " tipo_diag, CIDA.cid, descricao_diag, tipo_hd, CIDB.cid,  "
                            + " descricao_hd, ano_escolar_aluno, turno_escolar, turno_aee, profregular, "
                            + " observacoes, transporte, auxiliar, mobilidade, telefone, "

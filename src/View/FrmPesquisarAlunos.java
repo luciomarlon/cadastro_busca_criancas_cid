@@ -10,10 +10,13 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class FrmPesquisarAlunos extends javax.swing.JFrame {
+    
+   
+    
 
     public FrmPesquisarAlunos() {
         initComponents();
-//        ListarAlunos();     
+        ListarAlunos();     
         PesquisarTotal();
         lbMudaDiagnostico.setText("TOTAL DE REGISTROS");
         txtMudaDiagnostico.setText("TOTAL DE REGISTROS");
@@ -28,7 +31,7 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbListarAlunos = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
-        btnAlterar = new javax.swing.JButton();
+        btnVisualizar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
         txtPesquisaAlunos = new javax.swing.JTextField();
@@ -42,6 +45,9 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         lbMudaDiagnostico = new javax.swing.JLabel();
         txtMudaDiagnostico = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        btnAlterar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("BUSCAR/LISTAR ALUNOS");
@@ -82,12 +88,33 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
             tbListarAlunos.getColumnModel().getColumn(0).setMinWidth(0);
             tbListarAlunos.getColumnModel().getColumn(0).setPreferredWidth(0);
             tbListarAlunos.getColumnModel().getColumn(0).setMaxWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(4).setMinWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(4).setPreferredWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(4).setMaxWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(5).setMinWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(5).setPreferredWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(5).setMaxWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(7).setMinWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(7).setPreferredWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(7).setMaxWidth(0);
             tbListarAlunos.getColumnModel().getColumn(8).setMinWidth(0);
             tbListarAlunos.getColumnModel().getColumn(8).setPreferredWidth(0);
             tbListarAlunos.getColumnModel().getColumn(8).setMaxWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(15).setMinWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(15).setPreferredWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(15).setMaxWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(18).setMinWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(18).setPreferredWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(18).setMaxWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(19).setMinWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(19).setPreferredWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(19).setMaxWidth(0);
             tbListarAlunos.getColumnModel().getColumn(23).setMinWidth(0);
             tbListarAlunos.getColumnModel().getColumn(23).setPreferredWidth(0);
             tbListarAlunos.getColumnModel().getColumn(23).setMaxWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(24).setMinWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(24).setPreferredWidth(0);
+            tbListarAlunos.getColumnModel().getColumn(24).setMaxWidth(0);
             tbListarAlunos.getColumnModel().getColumn(25).setMinWidth(0);
             tbListarAlunos.getColumnModel().getColumn(25).setPreferredWidth(0);
             tbListarAlunos.getColumnModel().getColumn(25).setMaxWidth(0);
@@ -103,14 +130,14 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
         jLabel3.setText("Buscar");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
-        btnAlterar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        btnAlterar.setText("Alterar");
-        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+        btnVisualizar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btnVisualizar.setText("Visualizar");
+        btnVisualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterarActionPerformed(evt);
+                btnVisualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 710, 200, 60));
+        getContentPane().add(btnVisualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 790, 200, 60));
 
         btnLimpar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btnLimpar.setText("Limpar");
@@ -210,21 +237,38 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
         });
         getContentPane().add(txtMudaDiagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 670, 230, 30));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("D.I. para UNICO");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 170, 50));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("DI para MULTIPLAS");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 170, 50));
+
+        btnAlterar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btnAlterar.setText("Alterar");
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 710, 200, 60));
+
         getAccessibleContext().setAccessibleDescription("");
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+    private void btnVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarActionPerformed
 //        FrmPesquisarAlunos pesquisaralunos = new FrmPesquisarAlunos();
 //        pesquisaralunos.setVisible(true);
 //        pesquisaralunos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        this.dispose();
+//        this.dispose();        
         
-        AlteracaoAlunos();
+        VisualizarAlunos();
 
-    }//GEN-LAST:event_btnAlterarActionPerformed
+    }//GEN-LAST:event_btnVisualizarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
 
@@ -254,11 +298,13 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-                 
+                
 
                 if(txtPesquisaAlunos.getText().equals(""))
                 {
+                    Limpar();
                     ListarAlunos();                     
+                    
                     lbMudaDiagnostico.setText("TOTAL DE REGISTROS");
                     txtMudaDiagnostico.setText("TOTAL DE REGISTROS");                    
                 }
@@ -266,7 +312,7 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
                 {
                     PesquisarAlunos();
                     PesquisarTotal();
-                    cbBuscarTipo.setSelectedItem("SELECIONE"); 
+                    
                 }
                
     }//GEN-LAST:event_btnBuscarActionPerformed
@@ -343,6 +389,10 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPesquisaAlunosActionPerformed
 
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+       AlteracaoAlunos();
+    }//GEN-LAST:event_btnAlterarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -360,10 +410,13 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnVisualizar;
     private javax.swing.JComboBox<String> cbBuscarTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbMudaDiagnostico;
@@ -383,9 +436,10 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
          
          if (tbListarAlunos.getSelectedRow() < 0)
          {
-             JOptionPane.showMessageDialog(null, "Selecione um Aluno");
+             JOptionPane.showMessageDialog(null, "Selecione um Aluno");             
              FrmPesquisarAlunos pesquisar = new FrmPesquisarAlunos();
-             pesquisar.setVisible(true);
+//             pesquisar.setVisible(true);
+             pesquisar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
              PesquisarAlunos();             
          }
          else
@@ -436,12 +490,78 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
          }
     }
     
+    
+    public void VisualizarAlunos()
+    {
+         String  cpf, dataCadastro,  anoescolar, nomealuno,  sexo, laudo,  
+                 tipodiag, datanascimento,  responsavel, telefone,  suspeita,  
+                 cid_diag, descdiagnostico, cid_hd, tipoHD,  descHD, turnoescolar,  
+                 turnoaee,  profregular, estatus, observacoes, transporte, auxiliar, 
+                 mobilidade, beneficios,  professor, id_aluno;
+         
+         if (tbListarAlunos.getSelectedRow() < 0)
+         {
+             JOptionPane.showMessageDialog(null, "Selecione um Aluno");
+              
+             FrmPesquisarAlunos pesquisar = new FrmPesquisarAlunos();
+//             pesquisar.setVisible(true);
+             pesquisar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+             PesquisarAlunos();             
+         }
+         else
+         {
+             int linha = tbListarAlunos.getSelectedRow();
+
+             cpf = (String) tbListarAlunos.getValueAt(linha, 0);
+             dataCadastro = (String) tbListarAlunos.getValueAt(linha, 1); 
+             professor = (String)tbListarAlunos.getValueAt(linha, 2);
+             nomealuno = (String) tbListarAlunos.getValueAt(linha, 3);
+             datanascimento = (String)tbListarAlunos.getValueAt(linha, 4); 
+             sexo = (String) tbListarAlunos.getValueAt(linha, 5);
+             laudo = (String)tbListarAlunos.getValueAt(linha, 6);
+             suspeita = (String)tbListarAlunos.getValueAt(linha, 7);
+             responsavel = (String)tbListarAlunos.getValueAt(linha, 8);
+             tipodiag = (String)tbListarAlunos.getValueAt(linha, 9); 
+             cid_diag = (String)tbListarAlunos.getValueAt(linha, 10);           
+             descdiagnostico = (String)tbListarAlunos.getValueAt(linha, 11);              
+             tipoHD = (String)tbListarAlunos.getValueAt(linha, 12);
+             cid_hd = (String)tbListarAlunos.getValueAt(linha, 13);             
+             descHD = (String)tbListarAlunos.getValueAt(linha, 14);
+             anoescolar = (String) tbListarAlunos.getValueAt(linha, 15);
+             turnoescolar = (String)tbListarAlunos.getValueAt(linha, 16);             
+             turnoaee = (String)tbListarAlunos.getValueAt(linha, 17);    
+             profregular = (String)tbListarAlunos.getValueAt(linha, 18);
+             observacoes = (String)tbListarAlunos.getValueAt(linha, 19); 
+             transporte = (String)tbListarAlunos.getValueAt(linha, 20); 
+             auxiliar = (String)tbListarAlunos.getValueAt(linha, 21); 
+             mobilidade = (String)tbListarAlunos.getValueAt(linha, 22);                
+             telefone = (String)tbListarAlunos.getValueAt(linha, 23);
+             beneficios = (String)tbListarAlunos.getValueAt(linha, 24);  
+             estatus = (String)tbListarAlunos.getValueAt(linha, 25); 
+             id_aluno = (String)tbListarAlunos.getValueAt(linha, 26);  
+          
+             
+             FrmVisualizarAlunos atualizaalunos = new FrmVisualizarAlunos();
+             atualizaalunos.setVisible(true);
+             
+             atualizaalunos.AtualizarAlunos(cpf, dataCadastro, anoescolar, 
+                                            nomealuno, sexo, datanascimento, 
+                                            responsavel,  telefone, suspeita, 
+                                            laudo, tipodiag, descdiagnostico, 
+                                            tipoHD, descHD, turnoescolar, 
+                                            turnoaee, profregular, estatus, observacoes, 
+                                            transporte, auxiliar, mobilidade, 
+                                            cid_diag, cid_hd, beneficios, 
+                                            professor, id_aluno);            
+         }
+    }
+    
     public void ListarAlunos()
     {
         DefaultTableModel tabelaAlunos = 
                 (DefaultTableModel)tbListarAlunos.getModel();
         
-        tbListarAlunos.getTableHeader().setReorderingAllowed (false);
+        tbListarAlunos.getTableHeader().setReorderingAllowed (false);        
         
         DAO.DAO_Alunos listaalunos = new DAO_Alunos();
         ResultSet retornaAlunos = listaalunos.listarAlunos();
@@ -1082,6 +1202,7 @@ public class FrmPesquisarAlunos extends javax.swing.JFrame {
      
        
     }
-
+    
+   
 
 }
